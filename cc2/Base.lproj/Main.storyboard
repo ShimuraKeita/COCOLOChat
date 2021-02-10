@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="cc2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="cc2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,6 +92,9 @@
                                 <state key="normal" title="パスワードをお忘れですか？">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgotPasswordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8p4-N6-hWE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7y-aK-hDP">
                                 <rect key="frame" x="241" y="371" width="153" height="30"/>
@@ -102,15 +105,24 @@
                                 <state key="normal" title="メールアドレスを再送">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="resendEmailButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VE3-Db-UT9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ida-6w-gJk">
                                 <rect key="frame" x="84" y="421" width="247" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="ログイン"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WyR-Gi-znR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egc-UY-IDp">
                                 <rect key="frame" x="107.5" y="832" width="199" height="30"/>
                                 <state key="normal" title="新規アカウント作成はこちら"/>
+                                <connections>
+                                    <action selector="signUpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qhI-Su-V4h"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -131,6 +143,18 @@
                             <constraint firstItem="9eU-UF-jB6" firstAttribute="top" secondItem="2kG-cM-8PW" secondAttribute="bottom" constant="10" id="zBu-bD-IWi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailLabelOutlet" destination="uMC-fj-BXy" id="3md-Xn-Dy8"/>
+                        <outlet property="emailTextField" destination="Hyu-JB-HWY" id="v4y-cA-1mT"/>
+                        <outlet property="loginButtonOutlet" destination="ida-6w-gJk" id="Ts7-Td-cvi"/>
+                        <outlet property="passwordLabelOutlet" destination="fd8-wE-OFA" id="sYU-pX-Llg"/>
+                        <outlet property="passwordTextField" destination="HeK-Un-ORl" id="RY7-pZ-siI"/>
+                        <outlet property="repeatPasswordLabel" destination="zEf-67-ePY" id="aqd-cA-qg2"/>
+                        <outlet property="repeatPasswordLineView" destination="VcQ-mR-GTO" id="7ap-u0-JZd"/>
+                        <outlet property="resendEmailButtonOutlet" destination="R7y-aK-hDP" id="cmw-ZQ-OTh"/>
+                        <outlet property="resetPasswordTextField" destination="4a2-Yo-yd2" id="2Zt-dz-jNK"/>
+                        <outlet property="signUpButtonOutlet" destination="egc-UY-IDp" id="y1R-Fy-p8c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
