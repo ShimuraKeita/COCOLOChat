@@ -27,10 +27,15 @@ class LoginViewController: UIViewController {
     //Views
     @IBOutlet weak var repeatPasswordLineView: UIView!
     
+    
+    //MARK: - Vars
+    var isLogin = true
+    
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateUIFor(login: true)
         setupTextFieldDelegates()
     }
     
@@ -47,8 +52,9 @@ class LoginViewController: UIViewController {
         
     }
     
-    @IBAction func signUpButtonPressed(_ sender: Any) {
-        
+    @IBAction func signUpButtonPressed(_ sender: UIButton) {
+        updateUIFor(login: sender.titleLabel?.text == "アカウントをお持ちの方はこちら")
+        isLogin.toggle()
     }
     
     //MARK: - Setup
@@ -63,6 +69,20 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - Animations
+    
+    private func updateUIFor(login: Bool) {
+        
+        loginButtonOutlet.setTitle(login ?
+                                    "ログイン" : "登録", for: .normal)
+        signUpButtonOutlet.setTitle(login ?
+                                    "新規登録はこちら" : "アカウントをお持ちの方はこちら", for: .normal)
+        
+        UIView.animate(withDuration: 0.5) {
+            self.repeatPasswordTextField.isHidden = login
+            self.repeatPasswordLabel.isHidden = login
+            self.repeatPasswordLineView.isHidden = login
+        }
+    }
     
     private func updatePlaceholderLabels(textField: UITextField) {
         
