@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     //TextFields
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var resetPasswordTextField: UITextField!
+    @IBOutlet weak var repeatPasswordTextField: UITextField!
     //Buttons
     @IBOutlet weak var loginButtonOutlet: UIButton!
     @IBOutlet weak var signUpButtonOutlet: UIButton!
@@ -30,6 +30,8 @@ class LoginViewController: UIViewController {
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupTextFieldDelegates()
     }
     
     //MARK: - IBActions
@@ -47,6 +49,32 @@ class LoginViewController: UIViewController {
     
     @IBAction func signUpButtonPressed(_ sender: Any) {
         
+    }
+    
+    //MARK: - Setup
+    private func setupTextFieldDelegates() {
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        repeatPasswordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        updatePlaceholderLabels(textField: textField)
+    }
+    
+    //MARK: - Animations
+    
+    private func updatePlaceholderLabels(textField: UITextField) {
+        
+        switch textField {
+        case emailTextField:
+            emailLabelOutlet.text = textField.hasText ? "メールアドレス" : ""
+        case passwordTextField:
+            passwordLabelOutlet.text = textField.hasText ? "パスワード" : ""
+        default:
+            repeatPasswordLabel.text = textField.hasText ? "パスワード確認" : ""
+            
+        }
     }
 }
 
