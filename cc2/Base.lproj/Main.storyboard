@@ -88,6 +88,7 @@
                                 <rect key="frame" x="20" y="371" width="199" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VXI-9P-Xa0"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="xiK-Oc-RKk"/>
                                 </constraints>
                                 <state key="normal" title="パスワードをお忘れですか？">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,9 +97,10 @@
                                     <action selector="forgotPasswordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8p4-N6-hWE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7y-aK-hDP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7y-aK-hDP">
                                 <rect key="frame" x="241" y="371" width="153" height="30"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="L3w-Ni-wOX"/>
                                     <constraint firstAttribute="height" constant="30" id="qd7-jD-MEm"/>
                                     <constraint firstAttribute="width" constant="153" id="yr6-dl-uHQ"/>
                                 </constraints>
@@ -128,14 +130,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R7y-aK-hDP" secondAttribute="trailing" constant="20" id="1Hu-QF-riP"/>
                             <constraint firstItem="9eU-UF-jB6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7wf-rG-pxL"/>
+                            <constraint firstItem="R7y-aK-hDP" firstAttribute="trailing" secondItem="9eU-UF-jB6" secondAttribute="trailing" id="811-nz-Tgl"/>
                             <constraint firstItem="xtw-iI-QPB" firstAttribute="top" secondItem="9eU-UF-jB6" secondAttribute="bottom" constant="20" id="Ukx-9N-lWJ"/>
                             <constraint firstItem="xtw-iI-QPB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="VG0-GP-rb6"/>
                             <constraint firstItem="ida-6w-gJk" firstAttribute="top" secondItem="xtw-iI-QPB" secondAttribute="bottom" constant="20" id="WrX-lO-14E"/>
                             <constraint firstItem="2kG-cM-8PW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="fLx-m7-TxB"/>
                             <constraint firstItem="R7y-aK-hDP" firstAttribute="top" secondItem="9eU-UF-jB6" secondAttribute="bottom" constant="20" id="l1Q-vO-Ys1"/>
                             <constraint firstItem="ida-6w-gJk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nu6-9h-uRA"/>
+                            <constraint firstItem="xtw-iI-QPB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pZR-0O-8ek"/>
                             <constraint firstItem="egc-UY-IDp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="psl-yi-jzw"/>
+                            <constraint firstItem="R7y-aK-hDP" firstAttribute="leading" secondItem="xtw-iI-QPB" secondAttribute="trailing" constant="22" id="pyD-P7-qeZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9eU-UF-jB6" secondAttribute="trailing" constant="20" id="tGl-bU-dap"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2kG-cM-8PW" secondAttribute="trailing" constant="20" id="wZI-eR-w2s"/>
                             <constraint firstItem="2kG-cM-8PW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yvK-Ci-a4T"/>
