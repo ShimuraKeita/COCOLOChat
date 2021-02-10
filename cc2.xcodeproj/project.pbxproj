@@ -18,6 +18,8 @@
 		2357E8D925D40101001DB5DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2357E8D825D40101001DB5DD /* GoogleService-Info.plist */; };
 		2357E8F325D43A3D001DB5DD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E8F225D43A3D001DB5DD /* User.swift */; };
 		2357E8F825D43BB3001DB5DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E8F725D43BB3001DB5DD /* Constants.swift */; };
+		2357E8FD25D43EA1001DB5DD /* FCollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E8FC25D43EA1001DB5DD /* FCollectionReference.swift */; };
+		2357E90625D440CD001DB5DD /* FirebaseUserListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E90525D440CD001DB5DD /* FirebaseUserListener.swift */; };
 		4BC6226497F27D4D7A40948B /* Pods_cc2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C384654B27A1814EF0BD94E /* Pods_cc2Tests.framework */; };
 		7329606F3402C3DDFDD0748D /* Pods_cc2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A7F83445836DB8FFEFEB67 /* Pods_cc2.framework */; };
 		B4E2F8E3D26A5D38100E8FF1 /* Pods_cc2_cc2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D171F5D2191D79216CC65C4 /* Pods_cc2_cc2UITests.framework */; };
@@ -61,6 +63,8 @@
 		2357E8D825D40101001DB5DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2357E8F225D43A3D001DB5DD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2357E8F725D43BB3001DB5DD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2357E8FC25D43EA1001DB5DD /* FCollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCollectionReference.swift; sourceTree = "<group>"; };
+		2357E90525D440CD001DB5DD /* FirebaseUserListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserListener.swift; sourceTree = "<group>"; };
 		2ED45AADBD3AF4922ABF8898 /* Pods-cc2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cc2Tests.release.xcconfig"; path = "Target Support Files/Pods-cc2Tests/Pods-cc2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3F62E1F934DCC8D24397D525 /* Pods-cc2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cc2.release.xcconfig"; path = "Target Support Files/Pods-cc2/Pods-cc2.release.xcconfig"; sourceTree = "<group>"; };
 		48A7F83445836DB8FFEFEB67 /* Pods_cc2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cc2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +130,7 @@
 				2357E88125D3FE99001DB5DD /* SceneDelegate.swift */,
 				2357E88325D3FE99001DB5DD /* LoginViewController.swift */,
 				2357E8F725D43BB3001DB5DD /* Constants.swift */,
+				2357E90125D44043001DB5DD /* FirebaseHelpers */,
 				2357E8E825D43A17001DB5DD /* Model */,
 				2357E88525D3FE99001DB5DD /* Main.storyboard */,
 				2357E88825D3FE9C001DB5DD /* Assets.xcassets */,
@@ -160,6 +165,15 @@
 				2357E8F225D43A3D001DB5DD /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2357E90125D44043001DB5DD /* FirebaseHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				2357E8FC25D43EA1001DB5DD /* FCollectionReference.swift */,
+				2357E90525D440CD001DB5DD /* FirebaseUserListener.swift */,
+			);
+			path = FirebaseHelpers;
 			sourceTree = "<group>";
 		};
 		5670A315A67211A804001144 /* Pods */ = {
@@ -424,10 +438,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2357E8FD25D43EA1001DB5DD /* FCollectionReference.swift in Sources */,
 				2357E8F825D43BB3001DB5DD /* Constants.swift in Sources */,
 				2357E8F325D43A3D001DB5DD /* User.swift in Sources */,
 				2357E88425D3FE99001DB5DD /* LoginViewController.swift in Sources */,
 				2357E88025D3FE99001DB5DD /* AppDelegate.swift in Sources */,
+				2357E90625D440CD001DB5DD /* FirebaseUserListener.swift in Sources */,
 				2357E88225D3FE99001DB5DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
