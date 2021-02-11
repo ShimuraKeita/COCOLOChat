@@ -137,6 +137,20 @@ class LoginViewController: UIViewController {
     }
     
     private func loginUser() {
+        FirebaseUserListener.shared.loginUserWithEmail(email: emailTextField.text!, password: passwordTextField.text!) { (error, isEmailVerified) in
+            
+            if error == nil {
+                if isEmailVerified {
+                    
+                    self.goToApp()
+                } else {
+                    ProgressHUD.showFailed("メールアドレスが確認されていません。")
+                    self.resendEmailButtonOutlet.isHidden = false
+                }
+            } else {
+                ProgressHUD.showFailed(error!.localizedDescription)
+            }
+        }
         
     }
     
@@ -156,6 +170,12 @@ class LoginViewController: UIViewController {
         } else {
             ProgressHUD.showFailed("パスワードが一致しません。")
         }
+    }
+    
+    //MARK: - Navigation
+    private func goToApp() {
+        
+        print("go to app")
     }
 }
 
