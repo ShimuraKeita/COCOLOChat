@@ -13,6 +13,7 @@ let storage = Storage.storage()
 
 class FileStorage {
     
+    //MARK: - Images
     class func uploadImage(_ image: UIImage, dictionary: String, completion: @escaping (_ documentLink: String?) -> Void) {
         
         let storageRef = storage.reference(forURL: kFILEREFERENCE).child(dictionary)
@@ -43,6 +44,24 @@ class FileStorage {
             let progress = snapshot.progress!.completedUnitCount / snapshot.progress!.totalUnitCount
             ProgressHUD.showProgress(CGFloat(progress))
         }
-        
     }
+    
+    //MARK: - Save Locally
+    class func saveFileLocally(fileData: NSData, fileName: String) {
+        let docUrl = getDocumentsURL().appendingPathComponent(fileName, isDirectory: false)
+        fileData.write(to: docUrl, atomically: true)
+    }
+}
+
+//Helpers
+func fileInDocumentsDirectory(fileName: String) -> String {
+    return getDocumentsURL().appendingPathComponent(fileName).path
+}
+
+func getDocumentsURL() -> URL {
+    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
+}
+
+func fileExistsAtPath(path: String) -> Bool {
+    return FileManager.default.fileExists(atPath: fileInDocumentsDirectory(fileName: path))
 }
