@@ -62,5 +62,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>これにより、プロフィール画像を設定できるようになります。</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>これにより、プロフィール画像を設定できるようになります。</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>これにより、プロフィール画像を設定できるようになります。</string>
 </dict>
 </plist>

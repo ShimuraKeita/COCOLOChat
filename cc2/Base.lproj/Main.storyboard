@@ -457,6 +457,9 @@
                                                         <constraint firstAttribute="height" constant="30" id="sOI-Ga-fs3"/>
                                                     </constraints>
                                                     <state key="normal" title="編集"/>
+                                                    <connections>
+                                                        <action selector="editButtonPressed:" destination="8gP-tX-Kti" eventType="touchUpInside" id="b2W-ab-d2P"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
