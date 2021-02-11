@@ -54,6 +54,24 @@ class FirebaseUserListener {
         }
     }
     
+    //MARK: Resend link methods
+    func resendVerificationEmail(email: String, completion: @escaping (_ error: Error?) -> Void) {
+        
+        Auth.auth().currentUser?.reload(completion: { (error) in
+            
+            Auth.auth().currentUser?.sendEmailVerification(completion: { (error) in
+                completion(error)
+            })
+        })
+    }
+    
+    func resetPasswordFor(email: String, completion: @escaping (_ error: Error?) -> Void) {
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            completion(error)
+        }
+    }
+    
     //MARK: - Save users
     func saveUserToFireStore(_ user: User) {
         

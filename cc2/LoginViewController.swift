@@ -53,8 +53,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
         if isDataInputedFor(type: "password") {
-            //reset password
-            print(2222222222222222)
+            resetPassword()
         } else {
             ProgressHUD.showFailed("メールアドレスが入力されていません。")
         }
@@ -62,8 +61,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func resendEmailButtonPressed(_ sender: Any) {
         if isDataInputedFor(type: "password") {
-            //resend Verification email
-            print(3333333333333333)
+            resendVerificationEmail()
         } else {
             ProgressHUD.showFailed("メールアドレスが入力されていません。")
         }
@@ -169,6 +167,28 @@ class LoginViewController: UIViewController {
             }
         } else {
             ProgressHUD.showFailed("パスワードが一致しません。")
+        }
+    }
+    
+    private func resetPassword() {
+        FirebaseUserListener.shared.resetPasswordFor(email: emailTextField.text!) { (error) in
+            
+            if error == nil {
+                ProgressHUD.showSucceed("メールアドレスにパスワード再設定リンクを送信しました。")
+            } else {
+                ProgressHUD.showFailed(error!.localizedDescription)
+            }
+        }
+    }
+    
+    private func resendVerificationEmail() {
+        FirebaseUserListener.shared.resendVerificationEmail(email: emailTextField.text!) { (error) in
+            
+            if error == nil {
+                ProgressHUD.showSucceed("確認メールを送信しました。")
+            } else {
+                ProgressHUD.showFailed(error!.localizedDescription)
+            }
         }
     }
     
