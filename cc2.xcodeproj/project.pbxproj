@@ -23,6 +23,7 @@
 		2357E90F25D4DBE7001DB5DD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E90E25D4DBE7001DB5DD /* SettingsTableViewController.swift */; };
 		2357E91425D54F91001DB5DD /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E91325D54F91001DB5DD /* EditProfileTableViewController.swift */; };
 		2357E91925D56224001DB5DD /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E91825D56224001DB5DD /* FileStorage.swift */; };
+		2357E91E25D56FDD001DB5DD /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E91D25D56FDD001DB5DD /* GlobalFunctions.swift */; };
 		4BC6226497F27D4D7A40948B /* Pods_cc2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C384654B27A1814EF0BD94E /* Pods_cc2Tests.framework */; };
 		7329606F3402C3DDFDD0748D /* Pods_cc2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A7F83445836DB8FFEFEB67 /* Pods_cc2.framework */; };
 		B4E2F8E3D26A5D38100E8FF1 /* Pods_cc2_cc2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D171F5D2191D79216CC65C4 /* Pods_cc2_cc2UITests.framework */; };
@@ -71,6 +72,7 @@
 		2357E90E25D4DBE7001DB5DD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		2357E91325D54F91001DB5DD /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		2357E91825D56224001DB5DD /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
+		2357E91D25D56FDD001DB5DD /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		2ED45AADBD3AF4922ABF8898 /* Pods-cc2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cc2Tests.release.xcconfig"; path = "Target Support Files/Pods-cc2Tests/Pods-cc2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3F62E1F934DCC8D24397D525 /* Pods-cc2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cc2.release.xcconfig"; path = "Target Support Files/Pods-cc2/Pods-cc2.release.xcconfig"; sourceTree = "<group>"; };
 		48A7F83445836DB8FFEFEB67 /* Pods_cc2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cc2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				2357E8F725D43BB3001DB5DD /* Constants.swift */,
+				2357E91D25D56FDD001DB5DD /* GlobalFunctions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2357E91E25D56FDD001DB5DD /* GlobalFunctions.swift in Sources */,
 				2357E8FD25D43EA1001DB5DD /* FCollectionReference.swift in Sources */,
 				2357E91925D56224001DB5DD /* FileStorage.swift in Sources */,
 				2357E8F825D43BB3001DB5DD /* Constants.swift in Sources */,

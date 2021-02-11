@@ -46,6 +46,17 @@ class FileStorage {
         }
     }
     
+    class func downloadImage(imageUrl: String, completion: @escaping (_ image: UIImage?) -> Void) {
+        
+        let imageFileName = fileNameFrom(fileUrl: imageUrl)
+        
+        if fileExistsAtPath(path: imageFileName) {
+            print(111111111)
+        } else {
+            print(2222222222)
+        }
+    }
+    
     //MARK: - Save Locally
     class func saveFileLocally(fileData: NSData, fileName: String) {
         let docUrl = getDocumentsURL().appendingPathComponent(fileName, isDirectory: false)
