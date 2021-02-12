@@ -66,7 +66,9 @@ class EditProfileTableViewController: UITableViewController {
             statusLabel.text = user.status
             
             if user.avatarLink != "" {
-                
+                FileStorage.downloadImage(imageUrl: user.avatarLink) { (avaterImage) in
+                    self.avaterImageView.image = avaterImage
+                }
             }
         }
     }

@@ -51,9 +51,42 @@ class FileStorage {
         let imageFileName = fileNameFrom(fileUrl: imageUrl)
         
         if fileExistsAtPath(path: imageFileName) {
-            print(111111111)
+            
+            if let contentOfFile = UIImage(contentsOfFile: fileInDocumentsDirectory(fileName: imageFileName)) {
+                
+                completion(contentOfFile)
+            } else {
+                print("couldnt convert local image")
+                completion(UIImage(named: "avater"))
+            }
         } else {
-            print(2222222222)
+            //download from FB
+            
+            if imageUrl != "" {
+                
+                let documentUrl = URL(string: imageUrl)
+                
+                let downloadQueue = DispatchQueue(label: "imageDownloadQueue")
+                
+                downloadQueue.async {
+                    let data = NSData(contentsOf: documentUrl!)
+                    
+                    if data != nil {
+                        //Save locally
+                        FileStorage.saveFileLocally(fileData: data!, fileName: imageFileName)
+                        
+                        DispatchQueue.main.async {
+                            completion(UIImage(data: data! as Data))
+                        }
+                        
+                    } else {
+                        print("no document in database")
+                        DispatchQueue.main.async {
+                            completion(nil)
+                        }
+                    }
+                }
+            }
         }
     }
     
