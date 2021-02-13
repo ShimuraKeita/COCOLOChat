@@ -12,7 +12,7 @@ class SettingsTableViewController: UITableViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var avaterImageView: UIImageView!
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var appVersionLabel: UILabel!
     
     //MARK: - ViewLifeCycles
@@ -84,8 +84,8 @@ class SettingsTableViewController: UITableViewController {
             appVersionLabel.text = "アプリバージョン\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")"
             
             if user.avatarLink != "" {
-                FileStorage.downloadImage(imageUrl: user.avatarLink) { (avaterImage) in
-                    self.avaterImageView.image = avaterImage?.circleMasked
+                FileStorage.downloadImage(imageUrl: user.avatarLink) { (avatarImage) in
+                    self.avatarImageView.image = avatarImage?.circleMasked
                 }
             }
         }

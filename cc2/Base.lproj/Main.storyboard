@@ -221,19 +221,55 @@
         <!--ユーザー-->
         <scene sceneID="BqF-ob-28X">
             <objects>
-                <tableViewController id="Dtf-9D-i1e" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3of-2h-BcE">
+                <tableViewController id="Dtf-9D-i1e" customClass="UsersTableViewController" customModule="cc2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3of-2h-BcE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="krP-sx-vFy">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="krP-sx-vFy" customClass="UserTableViewCell" customModule="cc2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="krP-sx-vFy" id="glB-vO-3jn">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Cos-ga-gor">
+                                            <rect key="frame" x="16" y="10" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="EWw-kq-BF7"/>
+                                                <constraint firstAttribute="width" constant="60" id="ILQ-29-UyU"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザーネーム" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJq-Ny-X68">
+                                            <rect key="frame" x="84" y="10" width="299" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スタッツ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBF-2d-51g">
+                                            <rect key="frame" x="84" y="51" width="291" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Cos-ga-gor" firstAttribute="leading" secondItem="glB-vO-3jn" secondAttribute="leading" constant="16" id="5uV-KI-nDA"/>
+                                        <constraint firstItem="Cos-ga-gor" firstAttribute="centerY" secondItem="glB-vO-3jn" secondAttribute="centerY" id="JyG-j0-6eA"/>
+                                        <constraint firstItem="GJq-Ny-X68" firstAttribute="leading" secondItem="Cos-ga-gor" secondAttribute="trailing" constant="8" id="arU-TF-5WU"/>
+                                        <constraint firstAttribute="trailing" secondItem="GJq-Ny-X68" secondAttribute="trailing" id="c06-Ag-NzD"/>
+                                        <constraint firstAttribute="trailing" secondItem="oBF-2d-51g" secondAttribute="trailing" constant="8" id="ilv-YN-KTL"/>
+                                        <constraint firstItem="oBF-2d-51g" firstAttribute="leading" secondItem="Cos-ga-gor" secondAttribute="trailing" constant="8" id="rXu-zd-d8l"/>
+                                        <constraint firstItem="GJq-Ny-X68" firstAttribute="top" secondItem="glB-vO-3jn" secondAttribute="top" constant="10" id="uVm-Kt-yDz"/>
+                                        <constraint firstAttribute="bottom" secondItem="oBF-2d-51g" secondAttribute="bottom" constant="8" id="vzm-I3-1xb"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarImageView" destination="Cos-ga-gor" id="ps3-wd-pKJ"/>
+                                    <outlet property="statusLabel" destination="oBF-2d-51g" id="T3i-GP-hBe"/>
+                                    <outlet property="usernameLabel" destination="GJq-Ny-X68" id="Doo-Xd-AcA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -241,11 +277,11 @@
                             <outlet property="delegate" destination="Dtf-9D-i1e" id="Un1-zx-RNk"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="ユーザー" image="person.2" catalog="system" id="2Du-vm-bVR"/>
+                    <navigationItem key="navigationItem" title="ユーザー" largeTitleDisplayMode="always" id="V8I-mf-X6Z"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49x-N6-oe3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1719" y="474"/>
+            <point key="canvasLocation" x="2628.985507246377" y="473.4375"/>
         </scene>
         <!--設定-->
         <scene sceneID="8lF-WB-lhC">
@@ -406,7 +442,7 @@
                     <navigationItem key="navigationItem" title="設定" id="mDp-4S-uYl"/>
                     <connections>
                         <outlet property="appVersionLabel" destination="9d6-np-KI3" id="6Sc-w4-QQ9"/>
-                        <outlet property="avaterImageView" destination="rEP-Vd-ngo" id="wlA-bL-xm7"/>
+                        <outlet property="avatarImageView" destination="rEP-Vd-ngo" id="wlA-bL-xm7"/>
                         <outlet property="statusLabel" destination="9Pz-ZO-TbU" id="Jwe-Wj-I8j"/>
                         <outlet property="usernameLabel" destination="qQT-fi-XhY" id="Cww-q6-Fsr"/>
                         <segue destination="8gP-tX-Kti" kind="show" identifier="settingsToEditProfileSeg" id="XY4-ql-OYZ"/>
@@ -528,7 +564,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="プロフィール編集" largeTitleDisplayMode="never" id="ITz-HO-TxI"/>
                     <connections>
-                        <outlet property="avaterImageView" destination="R9U-Sy-rHB" id="OQp-Aj-YfV"/>
+                        <outlet property="avatarImageView" destination="R9U-Sy-rHB" id="OQp-Aj-YfV"/>
                         <outlet property="statusLabel" destination="P3B-vP-sWv" id="jk0-qy-tYG"/>
                         <outlet property="usernameTextField" destination="o0U-rN-es3" id="h1T-D3-Dy7"/>
                         <segue destination="OWs-v5-ahC" kind="show" identifier="editProfileToStatusSeg" id="duD-9N-nqC"/>
@@ -588,7 +624,7 @@
                     <connections>
                         <segue destination="03s-R6-Ufq" kind="relationship" relationship="viewControllers" id="Mf1-tV-FyK"/>
                         <segue destination="3qv-1y-1Nj" kind="relationship" relationship="viewControllers" id="sYV-w8-XYY"/>
-                        <segue destination="Dtf-9D-i1e" kind="relationship" relationship="viewControllers" id="g7M-Be-MVY"/>
+                        <segue destination="6Vm-t5-I5o" kind="relationship" relationship="viewControllers" id="g7M-Be-MVY"/>
                         <segue destination="BAH-GF-9WH" kind="relationship" relationship="viewControllers" id="Xia-RG-Z3g"/>
                     </connections>
                 </tabBarController>
@@ -614,6 +650,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QYk-ab-6G7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1718.840579710145" y="1140.4017857142856"/>
+        </scene>
+        <!--ユーザー-->
+        <scene sceneID="BPb-Xs-8HE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Vm-t5-I5o" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ユーザー" image="person.2" catalog="system" id="2Du-vm-bVR"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="DHK-gl-WAv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dtf-9D-i1e" kind="relationship" relationship="rootViewController" id="xh2-cd-flQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hiK-Rk-E9Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1718.840579710145" y="473.4375"/>
         </scene>
     </scenes>
     <resources>

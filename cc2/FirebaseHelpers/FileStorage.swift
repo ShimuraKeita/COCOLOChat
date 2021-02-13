@@ -57,7 +57,7 @@ class FileStorage {
                 completion(contentOfFile)
             } else {
                 print("couldnt convert local image")
-                completion(UIImage(named: "avater"))
+                completion(UIImage(named: "avatar"))
             }
         } else {
             //download from FB

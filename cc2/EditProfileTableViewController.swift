@@ -12,7 +12,7 @@ import ProgressHUD
 class EditProfileTableViewController: UITableViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var avaterImageView: UIImageView!
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var statusLabel: UILabel!
     
@@ -70,8 +70,8 @@ class EditProfileTableViewController: UITableViewController {
             statusLabel.text = user.status
             
             if user.avatarLink != "" {
-                FileStorage.downloadImage(imageUrl: user.avatarLink) { (avaterImage) in
-                    self.avaterImageView.image = avaterImage?.circleMasked
+                FileStorage.downloadImage(imageUrl: user.avatarLink) { (avatarImage) in
+                    self.avatarImageView.image = avatarImage?.circleMasked
                 }
             }
         }
@@ -97,15 +97,15 @@ class EditProfileTableViewController: UITableViewController {
     }
     
     //MARK: - UploadImages
-    private func uploadAvaterImage(_ image: UIImage) {
+    private func uploadAvatarImage(_ image: UIImage) {
         
         
-        let fileDirectory = "Avaters/" + "_\(User.currentId)" + ".jpg"
+        let fileDirectory = "avatars/" + "_\(User.currentId)" + ".jpg"
         
-        FileStorage.uploadImage(image, dictionary: fileDirectory) { (avaterLink) in
+        FileStorage.uploadImage(image, dictionary: fileDirectory) { (avatarLink) in
             
             if var user = User.currentUser {
-                user.avatarLink = avaterLink ?? ""
+                user.avatarLink = avatarLink ?? ""
                 saveUserLocally(user)
                 FirebaseUserListener.shared.saveUserToFireStore(user)
             }
@@ -139,10 +139,10 @@ extension EditProfileTableViewController: GalleryControllerDelegate {
     func galleryController(_ controller: GalleryController, didSelectImages images: [Image]) {
         
         if images.count > 0 {
-            images.first!.resolve { (avaterImage) in
-                if avaterImage != nil {
-                    self.uploadAvaterImage(avaterImage!)
-                    self.avaterImageView.image = avaterImage?.circleMasked
+            images.first!.resolve { (avatarImage) in
+                if avatarImage != nil {
+                    self.uploadAvatarImage(avatarImage!)
+                    self.avatarImageView.image = avatarImage?.circleMasked
                 } else {
                     ProgressHUD.showError("画像が選択されていません。")
                 }
