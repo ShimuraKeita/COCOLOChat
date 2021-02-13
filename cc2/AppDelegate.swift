@@ -11,11 +11,13 @@ import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var firstRun: Bool?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        
+        firstRunCheck()
         return true
     }
 
@@ -33,6 +35,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    //MARK: - FirstRun
+    private func firstRunCheck() {
+        
+        firstRun = userDefaults.bool(forKey: kFIRSTRUN)
+        
+        if !firstRun! {
+            let status = Status.array.map { $0.rawValue }
+            
+            userDefaults.setValue(status, forKey: kSTATUS)
+            userDefaults.setValue(true, forKey: kFIRSTRUN)
+            
+            userDefaults.synchronize()
+        }
+    }
 }
 

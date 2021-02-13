@@ -12,3 +12,4 @@ public let kFILEREFERENCE = "gs://cc22-eeac9.appspot.com"
 
 public let kCURRENTUSER = "currentUser"
 public let kSTATUS = "status"
+public let kFIRSTRUN = "firstRUN"
