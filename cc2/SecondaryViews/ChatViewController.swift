@@ -22,6 +22,8 @@ class ChatViewController: MessagesViewController {
     
     let refreshController = UIRefreshControl()
     let micButton = InputBarButtonItem()
+    
+    let mkMessages: [MKMessage] = []
 
     init(chatId: String, recipientId: String, recipientName: String) {
         super.init(nibName: nil, bundle: nil)
