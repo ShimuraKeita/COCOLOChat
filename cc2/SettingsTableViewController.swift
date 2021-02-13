@@ -85,7 +85,7 @@ class SettingsTableViewController: UITableViewController {
             
             if user.avatarLink != "" {
                 FileStorage.downloadImage(imageUrl: user.avatarLink) { (avaterImage) in
-                    self.avaterImageView.image = avaterImage
+                    self.avaterImageView.image = avaterImage?.circleMasked
                 }
             }
         }

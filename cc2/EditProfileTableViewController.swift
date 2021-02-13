@@ -67,7 +67,7 @@ class EditProfileTableViewController: UITableViewController {
             
             if user.avatarLink != "" {
                 FileStorage.downloadImage(imageUrl: user.avatarLink) { (avaterImage) in
-                    self.avaterImageView.image = avaterImage
+                    self.avaterImageView.image = avaterImage?.circleMasked
                 }
             }
         }
@@ -138,7 +138,7 @@ extension EditProfileTableViewController: GalleryControllerDelegate {
             images.first!.resolve { (avaterImage) in
                 if avaterImage != nil {
                     self.uploadAvaterImage(avaterImage!)
-                    self.avaterImageView.image = avaterImage
+                    self.avaterImageView.image = avaterImage?.circleMasked
                 } else {
                     ProgressHUD.showError("画像が選択されていません。")
                 }
