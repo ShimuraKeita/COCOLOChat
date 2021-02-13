@@ -531,11 +531,50 @@
                         <outlet property="avaterImageView" destination="R9U-Sy-rHB" id="OQp-Aj-YfV"/>
                         <outlet property="statusLabel" destination="P3B-vP-sWv" id="jk0-qy-tYG"/>
                         <outlet property="usernameTextField" destination="o0U-rN-es3" id="h1T-D3-Dy7"/>
+                        <segue destination="OWs-v5-ahC" kind="show" identifier="editProfileToStatusSeg" id="duD-9N-nqC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96w-LJ-pE6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3311.594202898551" y="1139.7321428571429"/>
+        </scene>
+        <!--スタッツ-->
+        <scene sceneID="7pH-GI-fbL">
+            <objects>
+                <tableViewController id="OWs-v5-ahC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KoC-Lw-OzN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Nug-rU-myV" style="IBUITableViewCellStyleDefault" id="SSB-B9-y0l">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SSB-B9-y0l" id="i2X-tM-e9w">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nug-rU-myV">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OWs-v5-ahC" id="got-0G-bZR"/>
+                            <outlet property="delegate" destination="OWs-v5-ahC" id="ciF-BW-GBR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="スタッツ" id="e5u-NF-Qfg"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IJQ-7x-6rV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4049" y="1140"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iz8-FX-7CX">
@@ -584,7 +623,7 @@
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="quote.bubble" catalog="system" width="128" height="110"/>
         <namedColor name="tableViewBackgroundColor">
-            <color red="0.94899999999999995" green="0.94899999999999995" blue="0.96899999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
