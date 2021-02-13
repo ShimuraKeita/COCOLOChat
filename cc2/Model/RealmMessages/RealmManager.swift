@@ -15,7 +15,7 @@ class RealmManager {
     
     private init() {}
     
-    func saveRealm<T: Object>(_ object: T) {
+    func saveToRealm<T: Object>(_ object: T) {
         
         do {
             try realm.write {

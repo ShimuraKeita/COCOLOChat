@@ -25,11 +25,20 @@ class OutgoingMessage {
         message.status = kSENT
         
         if text != nil {
-            sendTextMessage(message: message, text: text, memberIds: memberIds)
+            sendTextMessage(message: message, text: text!, memberIds: memberIds)
         }
         
         //TODO: Send push notification
         //TODO: Update recent
+    }
+    
+    class func sendMessage(message: LocalMessage, memberIds: [String]) {
+        
+        RealmManager.shared.saveToRealm(message)
+        
+        for memberId in memberIds {
+            print("Save message for \(memberIds)")
+        }
     }
 }
 
@@ -37,4 +46,6 @@ func sendTextMessage(message: LocalMessage, text: String, memberIds: [String]) {
     
     message.message = text
     message.type = kTEXT
+    
+    OutgoingMessage.sendMessage(message: message, memberIds: memberIds)
 }
