@@ -21,18 +21,19 @@ func startChat(user1: User, user2: User) -> String {
 func createRecentItems(chatRoomId: String, users: [User]) {
     
     var memberIdsToCreateRecent = [users.first!.id, users.last!.id]
+    print("member to create recent is", memberIdsToCreateRecent)
     
     FirebaseReference(.Recent).whereField(kCHATROOMID, isEqualTo: chatRoomId).getDocuments { (snapshot, error) in
         
         guard let snapshot = snapshot else { return }
         
         if !snapshot.isEmpty {
-            
+            print("update member to create recent is", memberIdsToCreateRecent)
             memberIdsToCreateRecent = removeMemberWhoHasRecent(snapshot: snapshot, memberIds: memberIdsToCreateRecent)
         }
         
         for userId in memberIdsToCreateRecent {
-            
+            print("create recent for user with id", userId)
             let senderUser = userId == User.currentId ? User.currentUser! : getReceiverFrom(users: users)
             
             let receiverUser = userId == User.currentId ? getReceiverFrom(users: users) : User.currentUser!
