@@ -41,6 +41,8 @@
 		23F37B4225D87462000BA8C6 /* MessageDisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B4125D87462000BA8C6 /* MessageDisplayDelegate.swift */; };
 		23F37B4425D87489000BA8C6 /* MessageLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B4325D87489000BA8C6 /* MessageLayoutDelegate.swift */; };
 		23F37B4925D874BC000BA8C6 /* InputBarAccessoryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B4825D874BC000BA8C6 /* InputBarAccessoryViewDelegate.swift */; };
+		23F37B4E25D87762000BA8C6 /* MessageKitDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B4D25D87762000BA8C6 /* MessageKitDefaults.swift */; };
+		23F37B5325D87937000BA8C6 /* MKMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B5225D87937000BA8C6 /* MKMessage.swift */; };
 		4BC6226497F27D4D7A40948B /* Pods_cc2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C384654B27A1814EF0BD94E /* Pods_cc2Tests.framework */; };
 		7329606F3402C3DDFDD0748D /* Pods_cc2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A7F83445836DB8FFEFEB67 /* Pods_cc2.framework */; };
 		B4E2F8E3D26A5D38100E8FF1 /* Pods_cc2_cc2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D171F5D2191D79216CC65C4 /* Pods_cc2_cc2UITests.framework */; };
@@ -107,6 +109,8 @@
 		23F37B4125D87462000BA8C6 /* MessageDisplayDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDisplayDelegate.swift; sourceTree = "<group>"; };
 		23F37B4325D87489000BA8C6 /* MessageLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLayoutDelegate.swift; sourceTree = "<group>"; };
 		23F37B4825D874BC000BA8C6 /* InputBarAccessoryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBarAccessoryViewDelegate.swift; sourceTree = "<group>"; };
+		23F37B4D25D87762000BA8C6 /* MessageKitDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageKitDefaults.swift; sourceTree = "<group>"; };
+		23F37B5225D87937000BA8C6 /* MKMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMessage.swift; sourceTree = "<group>"; };
 		2ED45AADBD3AF4922ABF8898 /* Pods-cc2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cc2Tests.release.xcconfig"; path = "Target Support Files/Pods-cc2Tests/Pods-cc2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3F62E1F934DCC8D24397D525 /* Pods-cc2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cc2.release.xcconfig"; path = "Target Support Files/Pods-cc2/Pods-cc2.release.xcconfig"; sourceTree = "<group>"; };
 		48A7F83445836DB8FFEFEB67 /* Pods_cc2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cc2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +215,7 @@
 				2357E8F225D43A3D001DB5DD /* User.swift */,
 				237F835625D807B50068A782 /* RecentChat.swift */,
 				237F832C25D7D2070068A782 /* Status.swift */,
+				23F37B5225D87937000BA8C6 /* MKMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				2357E91D25D56FDD001DB5DD /* GlobalFunctions.swift */,
 				23F37B1825D81F7E000BA8C6 /* StartChat.swift */,
 				237F832725D7C6A10068A782 /* Extensions.swift */,
+				23F37B4D25D87762000BA8C6 /* MessageKitDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				23F37B1E25D82298000BA8C6 /* FirebaseRecentListener.swift in Sources */,
 				237F833C25D7E5BC0068A782 /* UsersTableViewController.swift in Sources */,
 				23F37B4925D874BC000BA8C6 /* InputBarAccessoryViewDelegate.swift in Sources */,
+				23F37B4E25D87762000BA8C6 /* MessageKitDefaults.swift in Sources */,
 				23F37B3925D87436000BA8C6 /* MessageCellDelegate.swift in Sources */,
 				2357E91925D56224001DB5DD /* FileStorage.swift in Sources */,
 				2357E8F825D43BB3001DB5DD /* Constants.swift in Sources */,
@@ -585,6 +592,7 @@
 				2357E90625D440CD001DB5DD /* FirebaseUserListener.swift in Sources */,
 				2357E88225D3FE99001DB5DD /* SceneDelegate.swift in Sources */,
 				23F37B1425D814B8000BA8C6 /* RecentTableViewCell.swift in Sources */,
+				23F37B5325D87937000BA8C6 /* MKMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
