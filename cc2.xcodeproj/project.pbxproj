@@ -45,6 +45,7 @@
 		23F37B5325D87937000BA8C6 /* MKMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B5225D87937000BA8C6 /* MKMessage.swift */; };
 		23F37B5825D87C77000BA8C6 /* LocalMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B5725D87C77000BA8C6 /* LocalMessage.swift */; };
 		23F37B6425D88752000BA8C6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B6325D88752000BA8C6 /* RealmManager.swift */; };
+		23F37B6925D88BA1000BA8C6 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B6825D88BA1000BA8C6 /* OutgoingMessage.swift */; };
 		4BC6226497F27D4D7A40948B /* Pods_cc2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C384654B27A1814EF0BD94E /* Pods_cc2Tests.framework */; };
 		7329606F3402C3DDFDD0748D /* Pods_cc2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A7F83445836DB8FFEFEB67 /* Pods_cc2.framework */; };
 		B4E2F8E3D26A5D38100E8FF1 /* Pods_cc2_cc2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D171F5D2191D79216CC65C4 /* Pods_cc2_cc2UITests.framework */; };
@@ -115,6 +116,7 @@
 		23F37B5225D87937000BA8C6 /* MKMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMessage.swift; sourceTree = "<group>"; };
 		23F37B5725D87C77000BA8C6 /* LocalMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalMessage.swift; path = "../New Group/LocalMessage.swift"; sourceTree = "<group>"; };
 		23F37B6325D88752000BA8C6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		23F37B6825D88BA1000BA8C6 /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		2ED45AADBD3AF4922ABF8898 /* Pods-cc2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cc2Tests.release.xcconfig"; path = "Target Support Files/Pods-cc2Tests/Pods-cc2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3F62E1F934DCC8D24397D525 /* Pods-cc2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cc2.release.xcconfig"; path = "Target Support Files/Pods-cc2/Pods-cc2.release.xcconfig"; sourceTree = "<group>"; };
 		48A7F83445836DB8FFEFEB67 /* Pods_cc2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cc2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +222,7 @@
 				237F835625D807B50068A782 /* RecentChat.swift */,
 				237F832C25D7D2070068A782 /* Status.swift */,
 				23F37B5225D87937000BA8C6 /* MKMessage.swift */,
+				23F37B6825D88BA1000BA8C6 /* OutgoingMessage.swift */,
 				23F37B5C25D87C7D000BA8C6 /* RealmMessages */,
 			);
 			path = Model;
@@ -592,6 +595,7 @@
 				2357E8F325D43A3D001DB5DD /* User.swift in Sources */,
 				237F834825D7FFC50068A782 /* ProfileTableViewController.swift in Sources */,
 				2357E88425D3FE99001DB5DD /* LoginViewController.swift in Sources */,
+				23F37B6925D88BA1000BA8C6 /* OutgoingMessage.swift in Sources */,
 				2357E90F25D4DBE7001DB5DD /* SettingsTableViewController.swift in Sources */,
 				237F832825D7C6A10068A782 /* Extensions.swift in Sources */,
 				2357E91425D54F91001DB5DD /* EditProfileTableViewController.swift in Sources */,
