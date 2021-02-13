@@ -47,6 +47,8 @@ class RecentTableViewCell: UITableViewCell {
         }
 
         setAvatar(avatarLink: recent.avatarLink)
+        dateLabel.text = timeElapsed(recent.date ?? Date())
+        dateLabel.adjustsFontSizeToFitWidth = true
     }
     
     private func setAvatar(avatarLink: String) {
