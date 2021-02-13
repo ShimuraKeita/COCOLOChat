@@ -306,7 +306,13 @@
                             <outlet property="delegate" destination="RO2-e3-OeS" id="UXW-qI-PL3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="チャット" id="ZRv-fC-JRt"/>
+                    <navigationItem key="navigationItem" title="チャット" id="ZRv-fC-JRt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="WXT-zj-m5o">
+                            <connections>
+                                <action selector="composeBarButtonPressed:" destination="RO2-e3-OeS" id="ePT-Je-aFs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yQ9-pD-vCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -416,7 +422,7 @@
         <!--ユーザー-->
         <scene sceneID="BqF-ob-28X">
             <objects>
-                <tableViewController id="Dtf-9D-i1e" customClass="UsersTableViewController" customModule="cc2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="usersView" id="Dtf-9D-i1e" customClass="UsersTableViewController" customModule="cc2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3of-2h-BcE">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

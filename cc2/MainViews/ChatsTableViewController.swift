@@ -23,6 +23,15 @@ class ChatsTableViewController: UITableViewController {
         downloadRecentChats()
         setupSearchController()
     }
+    
+    //MARK: - IBActions
+    @IBAction func composeBarButtonPressed(_ sender: Any) {
+        
+        let userView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "usersView") as! UsersTableViewController
+        
+        navigationController?.pushViewController(userView, animated: true)
+    }
+    
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,6 +46,43 @@ class ChatsTableViewController: UITableViewController {
         
         cell.configure(recent: recent)
         return cell
+    }
+    
+    //MARK: - TableViewDelegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            let recent = searchController.isActive ? filteredRecents[indexPath.row] :allRecents[indexPath.row]
+            
+            FirebaseRecentListener.shared.deleteRecent(recent)
+            
+            searchController.isActive ? self.filteredRecents.remove(at: indexPath.row) : allRecents.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor(named: "tableViewBackgroundColor")
+        
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 5
     }
     
     //MARK: - Download Chats
