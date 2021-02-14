@@ -24,6 +24,10 @@ class ChatViewController: MessagesViewController {
     let micButton = InputBarButtonItem()
     
     let mkMessages: [MKMessage] = []
+    var allLocalMessages: Results<LocalMessage>!
+    
+    let realm = try! Realm()
+    
 
     init(chatId: String, recipientId: String, recipientName: String) {
         super.init(nibName: nil, bundle: nil)
@@ -43,6 +47,8 @@ class ChatViewController: MessagesViewController {
         
         configureMessageCollectionView()
         configureMessageInputBar()
+        
+        localChats()
     }
     
     //MARK: - Configurations
@@ -64,7 +70,7 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
         
         let attachButton = InputBarButtonItem()
-        attachButton.image = UIImage(systemName: "plus")
+        attachButton.image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
         
         attachButton.setSize(CGSize(width: 30, height: 30), animated: false)
         
@@ -73,7 +79,7 @@ class ChatViewController: MessagesViewController {
             print("attach button pressed")
         }
         
-        micButton.image = UIImage(systemName: "mic.fill")
+        micButton.image = UIImage(systemName: "mic.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
         micButton.setSize(CGSize(width: 30, height: 30), animated: false)
         
         //add gesture recognizer
@@ -86,6 +92,15 @@ class ChatViewController: MessagesViewController {
         messageInputBar.inputTextView.backgroundColor = .systemBackground
     }
     
+    //MARK: - Load Chats
+    private func localChats() {
+        
+        let predicate = NSPredicate(format: "chatRoomId = %@", chatId)
+        
+        allLocalMessages = realm.objects(LocalMessage.self).filter(predicate).sorted(byKeyPath: kDATE, ascending: true)
+        
+        print("we have \(allLocalMessages.count) message")
+    }
     //MARK: - Actions
     
     func messageSend(text: String?, photo: UIImage?, video: String?, audio: String?, location: String?, audioDuration: Float = 0.0) {
