@@ -87,6 +87,7 @@ class ChatViewController: MessagesViewController {
 
         localChats()
         listenForNewChats()
+        listenForReadStatusChange()
     }
     
     //MARK: - Configurations
@@ -199,6 +200,15 @@ class ChatViewController: MessagesViewController {
     }
     
     //MARK: Insert Messages
+    private func listenForReadStatusChange() {
+        
+        FirebaseMessageListener.shared.listenForReadStatusChange(User.currentId, collectionId: chatId) { (updateMessage) in
+            
+            print("....updated message ", updateMessage.message)
+            print("....updated message read status ", updateMessage.status)
+        }
+    }
+    
     private func insertMessages() {
         
         maxMessageNumber = allLocalMessages.count - displayingMessagesCount
