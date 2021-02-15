@@ -23,10 +23,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func requestLocationAccess() {
         
         if locationManager == nil {
+            print("autu location manager")
             locationManager = CLLocationManager()
             locationManager!.delegate = self
             locationManager!.desiredAccuracy = kCLLocationAccuracyBest
             locationManager!.requestWhenInUseAuthorization()
+        } else {
+            print("we have location manager")
         }
     }
     
@@ -50,5 +53,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         currentLocation = locations.last!.coordinate
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        if manager.authorizationStatus == .notDetermined {
+            self.locationManager!.requestWhenInUseAuthorization()
+        }
     }
 }

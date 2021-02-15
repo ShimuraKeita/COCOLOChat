@@ -68,7 +68,7 @@
 	<string>これにより、動画の送信が可能になります。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>これにより、写真の送信が可能になります。</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>これにより、位置情報の共有が可能になります。</string>
 </dict>
 </plist>
