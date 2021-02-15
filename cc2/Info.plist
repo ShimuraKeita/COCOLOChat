@@ -63,12 +63,14 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>これにより、写真撮影が可能になります。</string>
+	<string>写真撮影が可能になります。</string>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>これにより、動画の送信が可能になります。</string>
+	<string>動画の送信が可能になります。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>これにより、写真の送信が可能になります。</string>
+	<string>写真の送信が可能になります。</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>これにより、位置情報の共有が可能になります。</string>
+	<string>位置情報の共有が可能になります。</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>音声メッセージの送信が可能になります。</string>
 </dict>
 </plist>

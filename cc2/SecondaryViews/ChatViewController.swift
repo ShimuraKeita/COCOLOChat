@@ -433,7 +433,8 @@ class ChatViewController: MessagesViewController {
         case .began:
             audioDuration = Date()
             audioFileName = Date().stringDate()
-            //start recoding
+            AudioRecorder.shared
+            
         case .ended:
             
             //stop recoding
@@ -478,6 +479,4 @@ extension ChatViewController: GalleryControllerDelegate {
         
         controller.dismiss(animated: true, completion: nil)
     }
-    
-    
 }

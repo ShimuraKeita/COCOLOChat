@@ -24,6 +24,7 @@
 		2357E91425D54F91001DB5DD /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E91325D54F91001DB5DD /* EditProfileTableViewController.swift */; };
 		2357E91925D56224001DB5DD /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E91825D56224001DB5DD /* FileStorage.swift */; };
 		2357E91E25D56FDD001DB5DD /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E91D25D56FDD001DB5DD /* GlobalFunctions.swift */; };
+		23645D6E25DB1CAF007D3BB6 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */; };
 		237F832825D7C6A10068A782 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F832725D7C6A10068A782 /* Extensions.swift */; };
 		237F832D25D7D2070068A782 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F832C25D7D2070068A782 /* Status.swift */; };
 		237F833225D7D92C0068A782 /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F833125D7D92C0068A782 /* StatusTableViewController.swift */; };
@@ -104,6 +105,7 @@
 		2357E91325D54F91001DB5DD /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		2357E91825D56224001DB5DD /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		2357E91D25D56FDD001DB5DD /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		237F832725D7C6A10068A782 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		237F832C25D7D2070068A782 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		237F833125D7D92C0068A782 /* StatusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +245,8 @@
 				23F37B6825D88BA1000BA8C6 /* OutgoingMessage.swift */,
 				23F37B7B25DA645D000BA8C6 /* IncomingMessage.swift */,
 				239D8C2125DAF03F0045FD4A /* LocationManager.swift */,
+				239D8C3325DB0F750045FD4A /* MapAnnotation.swift */,
+				23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */,
 				239D8C1525DADCD20045FD4A /* Media Messages */,
 				23F37B5C25D87C7D000BA8C6 /* RealmMessages */,
 			);
@@ -339,7 +343,6 @@
 				23F37B4125D87462000BA8C6 /* MessageDisplayDelegate.swift */,
 				23F37B4325D87489000BA8C6 /* MessageLayoutDelegate.swift */,
 				23F37B4825D874BC000BA8C6 /* InputBarAccessoryViewDelegate.swift */,
-				239D8C3325DB0F750045FD4A /* MapAnnotation.swift */,
 			);
 			path = ChatViewExtensions;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				23F37B4925D874BC000BA8C6 /* InputBarAccessoryViewDelegate.swift in Sources */,
 				23F37B4E25D87762000BA8C6 /* MessageKitDefaults.swift in Sources */,
 				239D8C2225DAF03F0045FD4A /* LocationManager.swift in Sources */,
+				23645D6E25DB1CAF007D3BB6 /* AudioRecorder.swift in Sources */,
 				23F37B3925D87436000BA8C6 /* MessageCellDelegate.swift in Sources */,
 				2357E91925D56224001DB5DD /* FileStorage.swift in Sources */,
 				2357E8F825D43BB3001DB5DD /* Constants.swift in Sources */,
