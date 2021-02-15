@@ -49,6 +49,10 @@ class ChatViewController: MessagesViewController {
     
     let realm = try! Realm()
     
+    var displayingMessagesCount = 0
+    var maxMessageNumber = 0
+    var minMessageNumber = 0
+    
     //Listeners
     var notificationToken: NotificationToken?
     
@@ -180,13 +184,6 @@ class ChatViewController: MessagesViewController {
         })
     }
     
-    private func insertMessages() {
-        
-        for message in allLocalMessages {
-            insertMessage(message)
-        }
-    }
-    
     private func listenForNewChats() {
         FirebaseMessageListener.shared.listenForNewChats(User.currentId, collectionId: chatId, lastMessageDate: lastMessageDate())
     }
@@ -196,10 +193,25 @@ class ChatViewController: MessagesViewController {
     }
     
     //MARK: Insert Messages
+    private func insertMessages() {
+        
+        maxMessageNumber = allLocalMessages.count - displayingMessagesCount
+        minMessageNumber = maxMessageNumber - kNUMBEROFMESSAGES
+        
+        if minMessageNumber < 0 {
+            minMessageNumber = 0
+        }
+        
+        for i in minMessageNumber ..< maxMessageNumber {
+            insertMessage(allLocalMessages[i])
+        }
+    }
+    
     private func insertMessage(_ localMessage: LocalMessage) {
         
         let incoming = IncomingMessage(_collectionView: self)
         self.mkMessages.append(incoming.createMessage(localMessage: localMessage)!)
+        displayingMessagesCount += 1
     }
     
     //MARK: - Actions
@@ -212,7 +224,7 @@ class ChatViewController: MessagesViewController {
     @objc func backButtonPressed() {
         //TODO: remove listeners
         
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Update Typing indicator
