@@ -102,7 +102,7 @@ class EditProfileTableViewController: UITableViewController {
         
         let fileDirectory = "avatars/" + "_\(User.currentId)" + ".jpg"
         
-        FileStorage.uploadImage(image, dictionary: fileDirectory) { (avatarLink) in
+        FileStorage.uploadImage(image, directory: fileDirectory) { (avatarLink) in
             
             if var user = User.currentUser {
                 user.avatarLink = avatarLink ?? ""

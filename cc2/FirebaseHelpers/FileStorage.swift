@@ -14,9 +14,9 @@ let storage = Storage.storage()
 class FileStorage {
     
     //MARK: - Images
-    class func uploadImage(_ image: UIImage, dictionary: String, completion: @escaping (_ documentLink: String?) -> Void) {
+    class func uploadImage(_ image: UIImage, directory: String, completion: @escaping (_ documentLink: String?) -> Void) {
         
-        let storageRef = storage.reference(forURL: kFILEREFERENCE).child(dictionary)
+        let storageRef = storage.reference(forURL: kFILEREFERENCE).child(directory)
         let imageData = image.jpegData(compressionQuality: 0.6)
         var task: StorageUploadTask!
         

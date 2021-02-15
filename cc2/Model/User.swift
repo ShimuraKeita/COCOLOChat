@@ -69,7 +69,7 @@ func createDummyUsers() {
         let id = UUID().uuidString
         let fileDirectory = "Avatars/" + "_\(id)" + ".jpd"
         
-        FileStorage.uploadImage(UIImage(named: "user\(imageIndex)")!, dictionary: fileDirectory) { (avatarLink) in
+        FileStorage.uploadImage(UIImage(named: "user\(imageIndex)")!, directory: fileDirectory) { (avatarLink) in
             
             let user = User(id: id, username: names[i], email: "user\(userIndex)@mail.com", pushId: "", avatarLink: avatarLink ?? "", status: "No status")
             
