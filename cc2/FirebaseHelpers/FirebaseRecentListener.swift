@@ -59,6 +59,39 @@ class FirebaseRecentListener {
         }
     }
     
+    func updateRecents(chatRoomId: String, lastMessage: String) {
+    
+        FirebaseReference(.Recent).whereField(kCHATROOMID, isEqualTo: chatRoomId).getDocuments { (querySnapshot, error) in
+            
+            guard let documents = querySnapshot?.documents else {
+                print("no document for recent update")
+                return
+            }
+            
+            let allRecents = documents.compactMap { (queryDocumentSnapshot) -> RecentChat? in
+                return try? queryDocumentSnapshot.data(as: RecentChat.self)
+            }
+            
+            for recentChat in allRecents {
+                self.updateRecentItemsWithNewMessage(recent: recentChat, lastMessage: lastMessage)
+            }
+        }
+    }
+    
+    private func updateRecentItemsWithNewMessage(recent: RecentChat, lastMessage: String) {
+        
+        var tempRecent = recent
+        
+        if tempRecent.senderId != User.currentId {
+            tempRecent.unreadConter + 1
+        }
+        
+        tempRecent.lastMessage = lastMessage
+        tempRecent.date = Date()
+        
+        self.saveRecent(tempRecent)
+    }
+    
     func clearUnreadContainer(recent: RecentChat) {
         
         var newRecent = recent

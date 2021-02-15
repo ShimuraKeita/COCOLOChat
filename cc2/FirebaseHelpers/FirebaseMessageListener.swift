@@ -79,6 +79,6 @@ class FirebaseMessageListener {
     
     func removeListeners() {
         self.newChatListener.remove()
-        self.updateChatListener.remove()
+//        self.updateChatListener.remove()
     }
 }
