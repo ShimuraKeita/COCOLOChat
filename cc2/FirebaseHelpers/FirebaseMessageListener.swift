@@ -77,6 +77,16 @@ class FirebaseMessageListener {
         }
     }
     
+    //MARK: - UpdateMessageStatus
+    func updateMessageInFirebase(_ message: LocalMessage, memberIds: [String]) {
+        
+        let values = [kSTATUS: kREAD, kREADDATE: Date()] as [String: Any]
+        
+        for userId in memberIds {
+            FirebaseReference(.Messages).document(userId).collection(message.chatRoomId).document(message.id).updateData(values)
+        }
+    }
+    
     func removeListeners() {
         self.newChatListener.remove()
 //        self.updateChatListener.remove()
