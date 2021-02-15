@@ -31,7 +31,7 @@ class MapViewController: UIViewController {
         
         if location != nil {
             mapView.setCenter(location!.coordinate, animated: false)
-            //add annotation
+            mapView.addAnnotation(MapAnnotation(title: nil, coordinate: location!.coordinate))
         }
         
         view.addSubview(mapView)
