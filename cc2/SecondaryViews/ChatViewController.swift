@@ -74,7 +74,7 @@ class ChatViewController: MessagesViewController {
         
         configureLeftBarButton()
         configureCustomTitle()
-        
+
         localChats()
     }
     
@@ -186,5 +186,12 @@ class ChatViewController: MessagesViewController {
         //TODO: remove listeners
         
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    //MARK: - Update Typing indicator
+    
+    func updateTypingIndicator(_ show: Bool) {
+        
+        subTitleLabel.text = show ? "Typing..." : ""
     }
 }
