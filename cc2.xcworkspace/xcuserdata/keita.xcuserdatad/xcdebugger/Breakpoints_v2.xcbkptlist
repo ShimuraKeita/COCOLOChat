@@ -3,4 +3,84 @@
    uuid = "E4D76716-F2EC-43D0-A183-3CAEC040D45D"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B60BB957-3BC4-4D36-8680-CFA6F5834D1C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "cc2/Model/New Group/LocalMessage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "LocalMessage"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "B60BB957-3BC4-4D36-8680-CFA6F5834D1C - bec177d9730893c1"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "cc2.LocalMessage.senderinitials.getter : Swift.String"
+                  moduleName = "cc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keita/Desktop/cc2/cc2/Model/New%20Group/LocalMessage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "B60BB957-3BC4-4D36-8680-CFA6F5834D1C - 47a53719f9978235"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "cc2.LocalMessage.senderinitials.setter : Swift.String"
+                  moduleName = "cc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keita/Desktop/cc2/cc2/Model/New%20Group/LocalMessage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "B60BB957-3BC4-4D36-8680-CFA6F5834D1C - 5b947b7800feae88"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "cc2.LocalMessage.init() -&gt; cc2.LocalMessage"
+                  moduleName = "cc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keita/Desktop/cc2/cc2/Model/New%20Group/LocalMessage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "940">
+               </Location>
+               <Location
+                  uuid = "B60BB957-3BC4-4D36-8680-CFA6F5834D1C - f8aa95c56ec76808"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "cc2.LocalMessage.init(from: Swift.Decoder) throws -&gt; cc2.LocalMessage"
+                  moduleName = "cc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/keita/Desktop/cc2/cc2/Model/New%20Group/LocalMessage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "1720">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
