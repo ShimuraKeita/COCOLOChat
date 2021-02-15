@@ -115,7 +115,7 @@ class ChatViewController: MessagesViewController {
         
         attachButton.onTouchUpInside { item in
             
-            print("attach button pressed")
+            self.actionAttachMessage()
         }
         
         micButton.image = UIImage(systemName: "mic.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
@@ -276,6 +276,38 @@ class ChatViewController: MessagesViewController {
         FirebaseRecentListener.shared.resetRecentCounter(chatRoomId: chatId)
         removeListeners()
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func actionAttachMessage() {
+        
+        messageInputBar.inputTextView.resignFirstResponder()
+        
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let takePhotoOrVideo = UIAlertAction(title: "カメラ", style: .default) { (alert) in
+            print("show camera")
+        }
+        
+        let shareMedia = UIAlertAction(title: "ライブラリ", style: .default) { (alert) in
+            print("show library")
+        }
+        
+        let shareLocation = UIAlertAction(title: "位置情報共有", style: .default) { (alert) in
+            print("share Location")
+        }
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        
+        takePhotoOrVideo.setValue(UIImage(systemName: "camera"), forKey: "image")
+        shareMedia.setValue(UIImage(systemName: "photo.fill"), forKey: "image")
+        shareLocation.setValue(UIImage(systemName: "mappin.and.ellipse"), forKey: "image")
+        
+        optionMenu.addAction(takePhotoOrVideo)
+        optionMenu.addAction(shareMedia)
+        optionMenu.addAction(shareLocation)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
     }
     
     //MARK: - Update Typing indicator
