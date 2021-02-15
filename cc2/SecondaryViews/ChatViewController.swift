@@ -249,8 +249,8 @@ class ChatViewController: MessagesViewController {
     }
     
     @objc func backButtonPressed() {
-        //TODO: remove listeners
-        
+        FirebaseRecentListener.shared.resetRecentCounter(chatRoomId: chatId)
+        removeListeners()
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -287,7 +287,7 @@ class ChatViewController: MessagesViewController {
     
     func updateTypingIndicator(_ show: Bool) {
         
-        subTitleLabel.text = show ? "Typing..." : ""
+        subTitleLabel.text = show ? "入力中..." : ""
     }
     
     //MARK: - UIScrollViewDelegate
@@ -305,6 +305,11 @@ class ChatViewController: MessagesViewController {
     }
     
     //MARK: - Helpers
+    
+    private func removeListeners() {
+        FirebaseTypingListener.shared.removeTypingListener()
+        FirebaseMessageListener.shared.removeListeners()
+    }
     
     private func lastMessageDate() -> Date {
         
