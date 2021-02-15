@@ -21,7 +21,7 @@ class MKMessage: NSObject, MessageType {
     
     var photoItem: PhotoMessage?
     var videoItem: VideoMessage?
-    var locationItem: LocationManager?
+    var locationItem: LocationMessage?
 
     var status: String
     var readDate: Date
