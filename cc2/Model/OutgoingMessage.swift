@@ -34,7 +34,7 @@ class OutgoingMessage {
         }
         
         if video != nil {
-            
+            sendVideoMessage(message: message, video: video!, memberIds: memberIds)
         }
         
         //TODO: Send push notification
@@ -82,6 +82,7 @@ func sendPictureMessage(message: LocalMessage, photo: UIImage, memberIds: [Strin
 
 func sendVideoMessage(message: LocalMessage, video: Video, memberIds: [String]) {
     
+    print("senging video")
     message.message = "videoMessage"
     message.type = kVIDEO
     
@@ -97,15 +98,25 @@ func sendVideoMessage(message: LocalMessage, video: Video, memberIds: [String]) 
             
             let thumbnail = videoThumbnail(video: tempPath)
             
-            FileStorage.saveFileLocally(fileData: thumbnail.jpegData(compressionQuality: 0.7)!, fileName: fileName)
+            FileStorage.saveFileLocally(fileData: thumbnail.jpegData(compressionQuality: 0.7)! as NSData, fileName: fileName)
             
             FileStorage.uploadImage(thumbnail, directory: thumbnailDirectory) { (imageLink) in
                 
                 if imageLink != nil {
                     
+                    let videoData = NSData(contentsOfFile: tempPath.path)
+                    
+                    FileStorage.saveFileLocally(fileData: videoData!, fileName: fileName + ".mov")
+                    
+                    FileStorage.uploadVideo(videoData!, directory: videoDirectory) { (videoLink) in
+                        
+                        message.pictureUrl = imageLink ?? ""
+                        message.videoUrl = videoLink ?? ""
+                        
+                        OutgoingMessage.sendMessage(message: message, memberIds: memberIds)
+                    }
                 }
             }
         }
     }
-    
 }

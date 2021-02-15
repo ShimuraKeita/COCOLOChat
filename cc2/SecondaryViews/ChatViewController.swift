@@ -424,7 +424,7 @@ extension ChatViewController: GalleryControllerDelegate {
     }
     
     func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
-        
+        print("selected video")
         self.messageSend(text: nil, photo: nil, video: video, audio: nil, location: nil)
         controller.dismiss(animated: true, completion: nil)
     }
