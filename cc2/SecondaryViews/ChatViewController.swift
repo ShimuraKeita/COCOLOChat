@@ -203,10 +203,10 @@ class ChatViewController: MessagesViewController {
     private func listenForReadStatusChange() {
         
         FirebaseMessageListener.shared.listenForReadStatusChange(User.currentId, collectionId: chatId) { (updateMessage) in
-//
-//            print("....updated message ", updateMessage.message)
-//            print("....updated message read status ", updateMessage.status)
-            self.updateMessage(updateMessage)
+            
+            if updateMessage.status != kSENT {
+                self.updateMessage(updateMessage)
+            }
         }
     }
     
@@ -225,6 +225,10 @@ class ChatViewController: MessagesViewController {
     }
     
     private func insertMessage(_ localMessage: LocalMessage) {
+        
+        if localMessage.senderId != User.currentId {
+            markMessageAsRead(localMessage)
+        }
         
         let incoming = IncomingMessage(_collectionView: self)
         self.mkMessages.append(incoming.createMessage(localMessage: localMessage)!)
@@ -256,7 +260,7 @@ class ChatViewController: MessagesViewController {
     
     private func markMessageAsRead(_ localMessage: LocalMessage) {
         
-        if localMessage.senderId != User.currentId {
+        if localMessage.senderId != User.currentId && localMessage.status != kREAD {
             FirebaseMessageListener.shared.updateMessageInFirebase(localMessage, memberIds: [User.currentId, recipientId])
         }
     }

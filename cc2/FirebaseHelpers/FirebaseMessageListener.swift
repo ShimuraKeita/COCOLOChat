@@ -32,8 +32,13 @@ class FirebaseMessageListener {
                     
                     switch result {
                     case .success(let messageObject):
+                        
                         if let message = messageObject {
-                            RealmManager.shared.saveToRealm(message)
+                            
+                            if message.senderId != User.currentId {
+                                RealmManager.shared.saveToRealm(message)
+                            }
+                            
                         } else {
                             print("Document doesnt exist")
                         }
