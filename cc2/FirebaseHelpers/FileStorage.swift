@@ -153,6 +153,51 @@ class FileStorage {
         }
     }
     
+    //MARK: - Audio
+    
+    class func uploadAudio(_ audioFilename: String, directory: String, completion: @escaping (_ audioLink: String?) -> Void) {
+        
+        let filename = audioFilename + ".m4a"
+        
+        let storageRef = storage.reference(forURL: kFILEREFERENCE).child(directory)
+        
+        var task: StorageUploadTask!
+        
+        if fileExistsAtPath(path: filename) {
+            
+            if let audioData = NSData(contentsOfFile: fileInDocumentsDirectory(fileName: filename)) {
+                
+                task = storageRef.putData(audioData as Data, metadata: nil, completion: { (metadata, error) in
+                    
+                    task.removeAllObservers()
+                    ProgressHUD.dismiss()
+                    
+                    if error != nil {
+                        print("error uploading audio \(error!.localizedDescription)")
+                        return
+                    }
+                    
+                    storageRef.downloadURL { (url, error) in
+                        guard let downloadUrl = url else {
+                            completion(nil)
+                            return
+                        }
+                        completion(downloadUrl.absoluteString)
+                    }
+                })
+                
+                task.observe(StorageTaskStatus.progress) { (snapshot) in
+                    
+                    let progress = snapshot.progress!.completedUnitCount / snapshot.progress!.totalUnitCount
+                    ProgressHUD.showProgress(CGFloat(progress))
+                }
+            } else {
+                print("nothing to upload (audio)")
+            }
+        }
+    }
+
+    
     //MARK: - Save Locally
     class func saveFileLocally(fileData: NSData, fileName: String) {
         let docUrl = getDocumentsURL().appendingPathComponent(fileName, isDirectory: false)

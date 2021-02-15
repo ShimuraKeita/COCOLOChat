@@ -42,7 +42,7 @@ class OutgoingMessage {
         }
         
         if audio != nil {
-            print("send audio", audio, audioDuration)
+            sendAudioMessage(message: message, audioFilename: audio!, audioDuration: audioDuration, memberIds: memberIds)
         }
         
         //TODO: Send push notification
@@ -145,4 +145,14 @@ func sendAudioMessage(message: LocalMessage, audioFilename: String, audioDuratio
     message.type = kAUDIO
     
     let fileDirectory = "MediaMessages/Audio/" + "\(message.chatRoomId)/" + "_\(audioFilename)" + ".m4a"
+    
+    FileStorage.uploadAudio(audioFilename, directory: fileDirectory) { (audioUrl) in
+        
+        if audioUrl != nil {
+            message.audioUrl = audioUrl ?? ""
+            message.audioDuration = Double(audioDuration)
+            
+            OutgoingMessage.sendMessage(message: message, memberIds: memberIds)
+        }
+    }
 }
