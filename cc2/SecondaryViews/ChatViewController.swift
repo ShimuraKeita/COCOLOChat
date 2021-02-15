@@ -39,6 +39,8 @@ class ChatViewController: MessagesViewController {
     private var recipientId = ""
     private var recipientName = ""
     
+    var typingCounter = 0
+    
     let currentUser = MKSender(senderId: User.currentId, displayName: User.currentUser!.username)
     
     let refreshController = UIRefreshControl()
@@ -74,6 +76,8 @@ class ChatViewController: MessagesViewController {
         super.viewDidLoad()
 
         navigationItem.largeTitleDisplayMode = .never
+        
+        createTypingObserver()
         
         configureMessageCollectionView()
         configureMessageInputBar()
@@ -251,6 +255,35 @@ class ChatViewController: MessagesViewController {
     }
     
     //MARK: - Update Typing indicator
+    func createTypingObserver() {
+        
+        FirebaseTypingListener.shared.createTypingObserver(chatRoomId: chatId) { (isTyping) in
+            
+            DispatchQueue.main.async {
+                self.updateTypingIndicator(isTyping)
+            }
+        }
+    }
+    
+    func typingIndicatorUpdate() {
+        
+        typingCounter += 1
+        print("test............")
+        FirebaseTypingListener.saveTypingConnter(typing: true, chatRoomId: chatId)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.typingCounterStop()
+        }
+    }
+    
+    func typingCounterStop() {
+        
+        typingCounter -= 1
+        
+        if typingCounter == 0 {
+            FirebaseTypingListener.saveTypingConnter(typing: false, chatRoomId: chatId)
+        }
+    }
     
     func updateTypingIndicator(_ show: Bool) {
         
