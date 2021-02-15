@@ -24,6 +24,7 @@
 		2357E91425D54F91001DB5DD /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E91325D54F91001DB5DD /* EditProfileTableViewController.swift */; };
 		2357E91925D56224001DB5DD /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E91825D56224001DB5DD /* FileStorage.swift */; };
 		2357E91E25D56FDD001DB5DD /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2357E91D25D56FDD001DB5DD /* GlobalFunctions.swift */; };
+		23629B7125DB380200EC37EE /* AudioMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629B7025DB380200EC37EE /* AudioMessage.swift */; };
 		23645D6E25DB1CAF007D3BB6 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */; };
 		237F832825D7C6A10068A782 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F832725D7C6A10068A782 /* Extensions.swift */; };
 		237F832D25D7D2070068A782 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F832C25D7D2070068A782 /* Status.swift */; };
@@ -105,6 +106,7 @@
 		2357E91325D54F91001DB5DD /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		2357E91825D56224001DB5DD /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		2357E91D25D56FDD001DB5DD /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		23629B7025DB380200EC37EE /* AudioMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessage.swift; sourceTree = "<group>"; };
 		23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		237F832725D7C6A10068A782 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		237F832C25D7D2070068A782 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				239D8C1025DACD110045FD4A /* PhotoMessage.swift */,
 				239D8C1625DADCFA0045FD4A /* VideoMessage.swift */,
 				239D8C2925DB04E70045FD4A /* LocationMessage.swift */,
+				23629B7025DB380200EC37EE /* AudioMessage.swift */,
 			);
 			path = "Media Messages";
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				23F37B1925D81F7E000BA8C6 /* StartChat.swift in Sources */,
 				239D8C1725DADCFA0045FD4A /* VideoMessage.swift in Sources */,
 				2357E90625D440CD001DB5DD /* FirebaseUserListener.swift in Sources */,
+				23629B7125DB380200EC37EE /* AudioMessage.swift in Sources */,
 				2357E88225D3FE99001DB5DD /* SceneDelegate.swift in Sources */,
 				23F37B1425D814B8000BA8C6 /* RecentTableViewCell.swift in Sources */,
 				23F37B5325D87937000BA8C6 /* MKMessage.swift in Sources */,
