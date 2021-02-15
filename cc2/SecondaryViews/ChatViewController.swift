@@ -23,7 +23,7 @@ class ChatViewController: MessagesViewController {
     let refreshController = UIRefreshControl()
     let micButton = InputBarButtonItem()
     
-    let mkMessages: [MKMessage] = []
+    var mkMessages: [MKMessage] = []
     var allLocalMessages: Results<LocalMessage>!
     
     let realm = try! Realm()
@@ -107,7 +107,7 @@ class ChatViewController: MessagesViewController {
             switch changes {
             
             case .initial:
-                print("we have \(self.allLocalMessages.count) message")
+                self.insertMessages()
             case .update(_, _, let insertions, _):
                 
                 for index in insertions {
@@ -118,11 +118,24 @@ class ChatViewController: MessagesViewController {
             }
         })
     }
+    
+    private func insertMessages() {
+        
+        for message in allLocalMessages {
+            insertMessage(message)
+        }
+    }
+    
+    private func insertMessage(_ localMessage: LocalMessage) {
+        
+        let incoming = IncomingMessage(_collectionView: self)
+        self.mkMessages.append(incoming.createMessage(localMessage: localMessage)!)
+    }
+    
     //MARK: - Actions
     
     func messageSend(text: String?, photo: UIImage?, video: String?, audio: String?, location: String?, audioDuration: Float = 0.0) {
         
         OutgoingMessage.send(chatId: chatId, text: text, photo: photo, video: video, audio: audio, location: location, memberIds: [User.currentId, recipientId])
-        
     }
 }
