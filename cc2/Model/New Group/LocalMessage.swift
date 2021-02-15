@@ -23,9 +23,9 @@ class LocalMessage: Object, Codable {
     @objc dynamic var audioUrl = ""
     @objc dynamic var videoUrl = ""
     @objc dynamic var pictureUrl = ""
-    @objc dynamic var latitude = ""
-    @objc dynamic var longitude = ""
-    @objc dynamic var audioDuration = ""
+    @objc dynamic var latitude = 0.0
+    @objc dynamic var longitude = 0.0
+    @objc dynamic var audioDuration = 0.0
     
     override class func primaryKey() -> String? {
         return "id"

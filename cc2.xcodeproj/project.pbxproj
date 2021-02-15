@@ -34,6 +34,7 @@
 		239D8C1125DACD110045FD4A /* PhotoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239D8C1025DACD110045FD4A /* PhotoMessage.swift */; };
 		239D8C1725DADCFA0045FD4A /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239D8C1625DADCFA0045FD4A /* VideoMessage.swift */; };
 		239D8C2225DAF03F0045FD4A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239D8C2125DAF03F0045FD4A /* LocationManager.swift */; };
+		239D8C2A25DB04E70045FD4A /* LocationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239D8C2925DB04E70045FD4A /* LocationMessage.swift */; };
 		23F37B1425D814B8000BA8C6 /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B1325D814B8000BA8C6 /* RecentTableViewCell.swift */; };
 		23F37B1925D81F7E000BA8C6 /* StartChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B1825D81F7E000BA8C6 /* StartChat.swift */; };
 		23F37B1E25D82298000BA8C6 /* FirebaseRecentListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F37B1D25D82298000BA8C6 /* FirebaseRecentListener.swift */; };
@@ -111,6 +112,7 @@
 		239D8C1025DACD110045FD4A /* PhotoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMessage.swift; sourceTree = "<group>"; };
 		239D8C1625DADCFA0045FD4A /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
 		239D8C2125DAF03F0045FD4A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		239D8C2925DB04E70045FD4A /* LocationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMessage.swift; sourceTree = "<group>"; };
 		23F37B1325D814B8000BA8C6 /* RecentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
 		23F37B1825D81F7E000BA8C6 /* StartChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChat.swift; sourceTree = "<group>"; };
 		23F37B1D25D82298000BA8C6 /* FirebaseRecentListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRecentListener.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 			children = (
 				239D8C1025DACD110045FD4A /* PhotoMessage.swift */,
 				239D8C1625DADCFA0045FD4A /* VideoMessage.swift */,
+				239D8C2925DB04E70045FD4A /* LocationMessage.swift */,
 			);
 			path = "Media Messages";
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				237F832825D7C6A10068A782 /* Extensions.swift in Sources */,
 				2357E91425D54F91001DB5DD /* EditProfileTableViewController.swift in Sources */,
 				237F833225D7D92C0068A782 /* StatusTableViewController.swift in Sources */,
+				239D8C2A25DB04E70045FD4A /* LocationMessage.swift in Sources */,
 				237F832D25D7D2070068A782 /* Status.swift in Sources */,
 				23F37B7C25DA645D000BA8C6 /* IncomingMessage.swift in Sources */,
 				23F37B2825D864B0000BA8C6 /* ChatViewController.swift in Sources */,
