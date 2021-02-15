@@ -122,7 +122,36 @@ class FileStorage {
             ProgressHUD.showProgress(CGFloat(progress))
         }
     }
-
+    
+    class func downloadVideo(videoLink: String, completion: @escaping (_ isReadyToPlay: Bool, _ videoFileName: String) -> Void) {
+        
+        let videoUrl = URL(string: videoLink)
+        let videoFileName = fileNameFrom(fileUrl: videoLink) + ".mov"
+        
+        if fileExistsAtPath(path: videoFileName) {
+            
+            completion(true, videoFileName)
+        } else {
+            
+            let downloadQueue = DispatchQueue(label: "VideoDownloadQueue")
+            
+            downloadQueue.async {
+                let data = NSData(contentsOf: videoUrl!)
+                
+                if data != nil {
+                    //Save locally
+                    FileStorage.saveFileLocally(fileData: data!, fileName: videoFileName)
+                    
+                    DispatchQueue.main.async {
+                        completion(true, videoFileName)
+                    }
+                    
+                } else {
+                    print("no document in database")
+                }
+            }
+        }
+    }
     
     //MARK: - Save Locally
     class func saveFileLocally(fileData: NSData, fileName: String) {
