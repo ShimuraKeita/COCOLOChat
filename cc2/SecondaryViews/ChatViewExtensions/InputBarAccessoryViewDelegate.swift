@@ -16,6 +16,8 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         if text != "" {
             print("typing...")
         }
+        
+        updateMicButtonStatus(show: text == "")
     }
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
