@@ -203,9 +203,10 @@ class ChatViewController: MessagesViewController {
     private func listenForReadStatusChange() {
         
         FirebaseMessageListener.shared.listenForReadStatusChange(User.currentId, collectionId: chatId) { (updateMessage) in
-            
-            print("....updated message ", updateMessage.message)
-            print("....updated message read status ", updateMessage.status)
+//
+//            print("....updated message ", updateMessage.message)
+//            print("....updated message read status ", updateMessage.status)
+            self.updateMessage(updateMessage)
         }
     }
     
@@ -320,6 +321,26 @@ class ChatViewController: MessagesViewController {
             }
             
             refreshController.endRefreshing()
+        }
+    }
+    
+    //MARK: - UpdateReadMessageStatus
+    private func updateMessage(_ localMessage: LocalMessage) {
+        
+        for index in 0 ..< mkMessages.count {
+            
+            let tempMessage = mkMessages[index]
+            
+            if localMessage.id == tempMessage.messageId {
+                mkMessages[index].status = localMessage.status
+                mkMessages[index].readDate = localMessage.readDate
+                
+                RealmManager.shared.saveToRealm(localMessage)
+                
+                if mkMessages[index].status == kREAD {
+                    self.messagesCollectionView.reloadData()
+                }
+            }
         }
     }
     
