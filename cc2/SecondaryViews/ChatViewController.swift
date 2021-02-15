@@ -283,7 +283,7 @@ class ChatViewController: MessagesViewController {
     
     func messageSend(text: String?, photo: UIImage?, video: Video?, audio: String?, location: String?, audioDuration: Float = 0.0) {
         
-        OutgoingMessage.send(chatId: chatId, text: text, photo: photo, video: video, audio: audio, location: location, memberIds: [User.currentId, recipientId])
+        OutgoingMessage.send(chatId: chatId, text: text, photo: photo, video: video, audio: audio, audioDuration: audioDuration, location: location, memberIds: [User.currentId, recipientId])
     }
     
     @objc func backButtonPressed() {
@@ -433,14 +433,17 @@ class ChatViewController: MessagesViewController {
         case .began:
             audioDuration = Date()
             audioFileName = Date().stringDate()
-            AudioRecorder.shared
+            AudioRecorder.shared.startRecording(fileName: audioFileName)
             
         case .ended:
             
-            //stop recoding
+            AudioRecorder.shared.finishRecording()
+            
             if fileExistsAtPath(path: audioFileName + ".m4a") {
                 
-                //send message
+                let audioD = audioDuration.interval(ofComponent: .second, from: Date())
+                
+                messageSend(text: nil, photo: nil, video: nil, audio: audioFileName, location: audioD)
             } else {
                 print("no audio file")
             }
