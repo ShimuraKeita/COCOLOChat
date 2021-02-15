@@ -90,6 +90,8 @@ class FileStorage {
         }
     }
     
+    //MARK: - Video
+    
     //MARK: - Save Locally
     class func saveFileLocally(fileData: NSData, fileName: String) {
         let docUrl = getDocumentsURL().appendingPathComponent(fileName, isDirectory: false)

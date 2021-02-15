@@ -8,10 +8,11 @@
 import Foundation
 import UIKit
 import FirebaseFirestoreSwift
+import Gallery
 
 class OutgoingMessage {
     
-    class func send(chatId: String, text: String?, photo: UIImage?, video: String?, audio: String?, audioDuration: Float = 0.0, location: String?, memberIds: [String]) {
+    class func send(chatId: String, text: String?, photo: UIImage?, video: Video?, audio: String?, audioDuration: Float = 0.0, location: String?, memberIds: [String]) {
         
         let currentUser = User.currentUser!
         
@@ -30,6 +31,10 @@ class OutgoingMessage {
         
         if photo != nil {
             sendPictureMessage(message: message, photo: photo!, memberIds: memberIds)
+        }
+        
+        if video != nil {
+            
         }
         
         //TODO: Send push notification
@@ -55,7 +60,7 @@ func sendTextMessage(message: LocalMessage, text: String, memberIds: [String]) {
 }
 
 func sendPictureMessage(message: LocalMessage, photo: UIImage, memberIds: [String]) {
-    print("sending picture message")
+    
     message.message = "画像メッセージ"
     message.type = kPHOTO
     
@@ -69,6 +74,38 @@ func sendPictureMessage(message: LocalMessage, photo: UIImage, memberIds: [Strin
         if imageURL != nil {
             
             message.pictureUrl = imageURL!
+            
+            OutgoingMessage.sendMessage(message: message, memberIds: memberIds)
         }
     }
+}
+
+func sendVideoMessage(message: LocalMessage, video: Video, memberIds: [String]) {
+    
+    message.message = "videoMessage"
+    message.type = kVIDEO
+    
+    let fileName = Date().stringDate()
+    let thumbnailDirectory = "MediaMessages/Photo/" + "\(message.chatRoomId)/" + "_\(fileName)" + ".jpg"
+    let videoDirectory = "MediaMessages/Video/" + "\(message.chatRoomId)/" + "_\(fileName)" + ".mov"
+    
+    let editor = VideoEditor()
+    
+    editor.process(video: video) { (precessedVideo, videoUrl) in
+        
+        if let tempPath = videoUrl {
+            
+            let thumbnail = videoThumbnail(video: tempPath)
+            
+            FileStorage.saveFileLocally(fileData: thumbnail.jpegData(compressionQuality: 0.7)!, fileName: fileName)
+            
+            FileStorage.uploadImage(thumbnail, directory: thumbnailDirectory) { (imageLink) in
+                
+                if imageLink != nil {
+                    
+                }
+            }
+        }
+    }
+    
 }
