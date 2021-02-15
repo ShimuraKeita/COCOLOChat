@@ -108,10 +108,14 @@ class ChatViewController: MessagesViewController {
             
             case .initial:
                 self.insertMessages()
+                self.messagesCollectionView.reloadData()
+                self.messagesCollectionView.scrollToBottom(animated: true)
             case .update(_, _, let insertions, _):
                 
                 for index in insertions {
-                    print("new message \(self.allLocalMessages[index].message)")
+                    self.insertMessage(self.allLocalMessages[index])
+                    self.messagesCollectionView.reloadData()
+                    self.messagesCollectionView.scrollToBottom(animated: true)
                 }
             case .error(let error):
                 print("Error on new insertion ", error.localizedDescription)
