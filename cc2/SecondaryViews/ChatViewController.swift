@@ -236,9 +236,18 @@ class ChatViewController: MessagesViewController {
     
     private func insertOldMessage(_ localMessage: LocalMessage) {
         
+        markMessageAsRead(localMessage)
+        
         let incoming = IncomingMessage(_collectionView: self)
         self.mkMessages.insert(incoming.createMessage(localMessage: localMessage)!, at: 0)
         displayingMessagesCount += 1
+    }
+    
+    private func markMessageAsRead(_ localMessage: LocalMessage) {
+        
+        if localMessage.senderId != User.currentId {
+            FirebaseMessageListener.shared.updateMessageInFirebase(localMessage, memberIds: [User.currentId, recipientId])
+        }
     }
     
     //MARK: - Actions
