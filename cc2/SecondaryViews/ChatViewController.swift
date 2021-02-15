@@ -39,8 +39,6 @@ class ChatViewController: MessagesViewController {
     private var recipientId = ""
     private var recipientName = ""
     
-    var typingCounter = 0
-    
     let currentUser = MKSender(senderId: User.currentId, displayName: User.currentUser!.username)
     
     let refreshController = UIRefreshControl()
@@ -54,6 +52,10 @@ class ChatViewController: MessagesViewController {
     var displayingMessagesCount = 0
     var maxMessageNumber = 0
     var minMessageNumber = 0
+    
+    var typingCounter = 0
+    
+    var gallery: GalleryController!
     
     //Listeners
     var notificationToken: NotificationToken?
@@ -285,11 +287,12 @@ class ChatViewController: MessagesViewController {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let takePhotoOrVideo = UIAlertAction(title: "カメラ", style: .default) { (alert) in
-            print("show camera")
+        
+            self.showImageGallery(camera: true)
         }
         
         let shareMedia = UIAlertAction(title: "ライブラリ", style: .default) { (alert) in
-            print("show library")
+            self.showImageGallery(camera: false)
         }
         
         let shareLocation = UIAlertAction(title: "位置情報共有", style: .default) { (alert) in
@@ -392,4 +395,48 @@ class ChatViewController: MessagesViewController {
         let lastMessageDate = allLocalMessages.last?.date ?? Date()
         return Calendar.current.date(byAdding: .second, value: 1,to: lastMessageDate) ?? lastMessageDate
     }
+    
+    //MARK: - Gallery
+    private func showImageGallery(camera: Bool) {
+    
+        gallery = GalleryController()
+        gallery.delegate = self
+        
+        Config.tabsToShow = camera ? [.cameraTab] : [.imageTab, .videoTab]
+        Config.Camera.imageLimit = 1
+        Config.initialTab = .imageTab
+        Config.VideoEditor.maximumDuration = 30
+        
+        self.present(gallery, animated: true, completion: nil)
+    }
+}
+
+extension ChatViewController: GalleryControllerDelegate {
+    func galleryController(_ controller: GalleryController, didSelectImages images: [Image]) {
+        
+        if images.count > 0 {
+            images.first!.resolve { (image) in
+                
+                self.messageSend(text: nil, photo: image, video: nil, audio: nil, location: nil)
+            }
+        }
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryController(_ controller: GalleryController, requestLightbox images: [Image]) {
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryControllerDidCancel(_ controller: GalleryController) {
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
