@@ -28,7 +28,10 @@ class ChatViewController: MessagesViewController {
     
     let realm = try! Realm()
     
-
+    //Listeners
+    var notificationToken: NotificationToken?
+    
+    //MARK: - Inits
     init(chatId: String, recipientId: String, recipientName: String) {
         super.init(nibName: nil, bundle: nil)
         
@@ -99,7 +102,21 @@ class ChatViewController: MessagesViewController {
         
         allLocalMessages = realm.objects(LocalMessage.self).filter(predicate).sorted(byKeyPath: kDATE, ascending: true)
         
-        print("we have \(allLocalMessages.count) message")
+        notificationToken = allLocalMessages.observe({ (changes: RealmCollectionChange) in
+            
+            switch changes {
+            
+            case .initial:
+                print("we have \(self.allLocalMessages.count) message")
+            case .update(_, _, let insertions, _):
+                
+                for index in insertions {
+                    print("new message \(self.allLocalMessages[index].message)")
+                }
+            case .error(let error):
+                print("Error on new insertion ", error.localizedDescription)
+            }
+        })
     }
     //MARK: - Actions
     
