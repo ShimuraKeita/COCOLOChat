@@ -16,7 +16,7 @@ extension ChatViewController: MessageCellDelegate {
     func didTapImage(in cell: MessageCollectionViewCell) {
         
         if let indexPath = messagesCollectionView.indexPath(for: cell) {
-            let mkMessage = mkMessages[indexPath.row]
+            let mkMessage = mkMessages[indexPath.section]
             
             if mkMessage.photoItem != nil && mkMessage.photoItem!.image != nil {
                 

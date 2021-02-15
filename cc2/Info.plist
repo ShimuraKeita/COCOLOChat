@@ -63,10 +63,12 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>これにより、プロフィール画像を設定できるようになります。</string>
+	<string>これにより、写真撮影が可能になります。</string>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>これにより、プロフィール画像を設定できるようになります。</string>
+	<string>これにより、動画の送信が可能になります。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>これにより、プロフィール画像を設定できるようになります。</string>
+	<string>これにより、写真の送信が可能になります。</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>これにより、位置情報の共有が可能になります。</string>
 </dict>
 </plist>
