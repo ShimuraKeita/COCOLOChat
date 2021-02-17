@@ -39,6 +39,8 @@ class ChatViewController: MessagesViewController {
     private var recipientId = ""
     private var recipientName = ""
     
+    open lazy var audioController = BasicAudioController(messageCollectionView: messagesCollectionView)
+    
     let currentUser = MKSender(senderId: User.currentId, displayName: User.currentUser!.username)
     
     let refreshController = UIRefreshControl()
@@ -96,6 +98,19 @@ class ChatViewController: MessagesViewController {
         localChats()
         listenForNewChats()
         listenForReadStatusChange()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        FirebaseRecentListener.shared.resetRecentCounter(chatRoomId: chatId)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        FirebaseRecentListener.shared.resetRecentCounter(chatRoomId: chatId)
+        audioController.stopAnyOngoingPlaying()
     }
     
     //MARK: - Configurations
@@ -429,30 +444,33 @@ class ChatViewController: MessagesViewController {
     @objc func recordAudio() {
         
         switch longPressGesture.state {
-        
         case .began:
+            
             audioDuration = Date()
             audioFileName = Date().stringDate()
             AudioRecorder.shared.startRecording(fileName: audioFileName)
-            
         case .ended:
             
             AudioRecorder.shared.finishRecording()
-            
+        
             if fileExistsAtPath(path: audioFileName + ".m4a") {
                 
                 let audioD = audioDuration.interval(ofComponent: .second, from: Date())
 
                 messageSend(text: nil, photo: nil, video: nil, audio: audioFileName, location: nil, audioDuration: audioD)
+                
             } else {
                 print("no audio file")
             }
-         
+            
             audioFileName = ""
+            
         @unknown default:
             print("unknown")
         }
+
     }
+
 }
 
 extension ChatViewController: GalleryControllerDelegate {
