@@ -900,7 +900,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="usf-EV-X7V">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="tableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="100" id="C3c-gI-ICg">
                                 <rect key="frame" x="0.0" y="28" width="390" height="100"/>
@@ -987,9 +987,15 @@
                                 <segment title="登録中"/>
                                 <segment title="全てのチャンネル"/>
                             </segments>
+                            <connections>
+                                <action selector="channelsSegmentValueChanged:" destination="xqs-DN-UJp" eventType="valueChanged" id="amw-Il-p6l"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="person.2.square.stack" catalog="system" id="Aa4-4T-9ma"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ChannelsSegmentOutlet" destination="fEX-RW-uO9" id="9UM-uy-BYP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMX-da-V6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
