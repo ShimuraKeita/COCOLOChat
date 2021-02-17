@@ -902,7 +902,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="tableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="100" id="C3c-gI-ICg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="100" id="C3c-gI-ICg" customClass="ChannelsTableViewCell" customModule="cc2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="390" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C3c-gI-ICg" id="h6h-5w-McT">
@@ -916,7 +916,7 @@
                                                 <constraint firstAttribute="width" constant="50" id="uLv-rE-npH"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yh-Cf-pq9">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yh-Cf-pq9">
                                             <rect key="frame" x="75" y="14" width="268.66666666666669" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="kLA-lo-eRa"/>
@@ -971,6 +971,13 @@
                                         <constraint firstAttribute="bottom" secondItem="kMo-Uc-em6" secondAttribute="bottom" constant="13" id="ste-Ei-BEs"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="aboutLabel" destination="MLc-3p-mvd" id="fnF-AY-Fkd"/>
+                                    <outlet property="avaterImageView" destination="keM-Rn-mLR" id="T6I-kb-Tuc"/>
+                                    <outlet property="lastMessageDateLabel" destination="kMo-Uc-em6" id="jPD-ZE-eVl"/>
+                                    <outlet property="memberCountLabel" destination="jYm-ah-IaV" id="Jde-Y5-9yH"/>
+                                    <outlet property="nameLabel" destination="3Yh-Cf-pq9" id="vQf-hL-kEW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -27,6 +27,8 @@
 		23629B7125DB380200EC37EE /* AudioMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629B7025DB380200EC37EE /* AudioMessage.swift */; };
 		23629B7625DD2F3500EC37EE /* BasicAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629B7525DD2F3500EC37EE /* BasicAudioController.swift */; };
 		23629B9C25DD421100EC37EE /* ChannelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629B9B25DD421100EC37EE /* ChannelsTableViewController.swift */; };
+		23629BAE25DD497C00EC37EE /* ChannelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629BAD25DD497C00EC37EE /* ChannelsTableViewCell.swift */; };
+		23629BB625DD4E1400EC37EE /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629BB525DD4E1400EC37EE /* Channel.swift */; };
 		23645D6E25DB1CAF007D3BB6 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */; };
 		237F832825D7C6A10068A782 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F832725D7C6A10068A782 /* Extensions.swift */; };
 		237F832D25D7D2070068A782 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F832C25D7D2070068A782 /* Status.swift */; };
@@ -111,6 +113,8 @@
 		23629B7025DB380200EC37EE /* AudioMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessage.swift; sourceTree = "<group>"; };
 		23629B7525DD2F3500EC37EE /* BasicAudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAudioController.swift; sourceTree = "<group>"; };
 		23629B9B25DD421100EC37EE /* ChannelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableViewController.swift; sourceTree = "<group>"; };
+		23629BAD25DD497C00EC37EE /* ChannelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableViewCell.swift; sourceTree = "<group>"; };
+		23629BB525DD4E1400EC37EE /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		237F832725D7C6A10068A782 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		237F832C25D7D2070068A782 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 				239D8C3325DB0F750045FD4A /* MapAnnotation.swift */,
 				23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */,
 				23629B7525DD2F3500EC37EE /* BasicAudioController.swift */,
+				23629BB525DD4E1400EC37EE /* Channel.swift */,
 				239D8C1525DADCD20045FD4A /* Media Messages */,
 				23F37B5C25D87C7D000BA8C6 /* RealmMessages */,
 			);
@@ -300,6 +305,7 @@
 			children = (
 				237F833625D7E59F0068A782 /* UserTableViewCell.swift */,
 				23F37B1325D814B8000BA8C6 /* RecentTableViewCell.swift */,
+				23629BAD25DD497C00EC37EE /* ChannelsTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -628,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				237F835725D807B50068A782 /* RecentChat.swift in Sources */,
+				23629BB625DD4E1400EC37EE /* Channel.swift in Sources */,
 				23F37B5825D87C77000BA8C6 /* LocalMessage.swift in Sources */,
 				2357E91E25D56FDD001DB5DD /* GlobalFunctions.swift in Sources */,
 				2357E8FD25D43EA1001DB5DD /* FCollectionReference.swift in Sources */,
@@ -648,6 +655,7 @@
 				23F37B6925D88BA1000BA8C6 /* OutgoingMessage.swift in Sources */,
 				2357E90F25D4DBE7001DB5DD /* SettingsTableViewController.swift in Sources */,
 				23F37B8125DA9970000BA8C6 /* FirebaseTypingListener.swift in Sources */,
+				23629BAE25DD497C00EC37EE /* ChannelsTableViewCell.swift in Sources */,
 				237F832825D7C6A10068A782 /* Extensions.swift in Sources */,
 				2357E91425D54F91001DB5DD /* EditProfileTableViewController.swift in Sources */,
 				237F833225D7D92C0068A782 /* StatusTableViewController.swift in Sources */,
