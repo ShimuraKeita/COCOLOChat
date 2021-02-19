@@ -32,6 +32,11 @@ class AddChannelTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         configureGesture()
+        configureLeftBarButton()
+        
+        if channelToEdit != nil {
+            configureEditingView()
+        }
     }
     
     //MARK: - IBActions
@@ -63,6 +68,16 @@ class AddChannelTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backButtonPressed))
     }
     
+    private func configureEditingView() {
+        self.nameTextField.text = channelToEdit!.name
+        self.channelId = channelToEdit!.id
+        self.aboutTextView.text = channelToEdit!.aboutChannel
+        self.avatarLink = channelToEdit!.avaterLink
+        self.title = "チャンネル編集"
+        
+        setAvatar(avatarLink: channelToEdit!.avaterLink)
+    }
+    
     //MARK: - Save Channel
     private func saveChannel() {
         
@@ -84,6 +99,33 @@ class AddChannelTableViewController: UITableViewController {
         
         self.present(gallery, animated: true, completion: nil)
     }
+    
+    //MARK: Avatars
+    private func uploadAvatarImage(_ image: UIImage) {
+        
+        let fileDirectory = "Avatar/" + "\(channelId)" + ".jpg"
+        
+        FileStorage.saveFileLocally(fileData: image.jpegData(compressionQuality: 0.7)! as NSData, fileName: self.channelId)
+        
+        FileStorage.uploadImage(image, directory: fileDirectory) { (avatarLink) in
+            
+            self.avatarLink = avatarLink ?? ""
+        }
+    }
+    
+    private func setAvatar(avatarLink: String) {
+        
+        if avatarLink != "" {
+            FileStorage.downloadImage(imageUrl: avatarLink) { (avatarImage) in
+                
+                DispatchQueue.main.async {
+                    self.avatarImageView.image = avatarImage?.circleMasked
+                }
+            }
+        } else {
+            self.avatarImageView.image = UIImage(named: "avatar")
+        }
+    }
 }
 
 extension AddChannelTableViewController: GalleryControllerDelegate {
@@ -102,20 +144,6 @@ extension AddChannelTableViewController: GalleryControllerDelegate {
             }
         }
         controller.dismiss(animated: true, completion: nil)
-    }
-    
-    //MARK: Avatars
-    private func uploadAvatarImage(_ image: UIImage) {
-        
-        let fileDirectory = "Avatar/" + "\(channelId)" + ".jpg"
-        
-        FileStorage.saveFileLocally(fileData: image.jpegData(compressionQuality: 0.7) as! NSData, fileName: self.channelId)
-        
-        FileStorage.uploadImage(image, directory: fileDirectory) { (avatarLink) in
-            
-            self.avatarLink = avatarLink ?? ""
-        }
-        
     }
     
     func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
