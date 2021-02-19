@@ -48,6 +48,19 @@ class ChannelsTableViewController: UITableViewController {
         return cell
     }
     
+    //MARK: TableView Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if ChannelsSegmentOutlet.selectedSegmentIndex == 1 {
+            showChannelView(channel: allChannels[indexPath.row])
+        } else {
+            showChat(channel: subscribeChannels[indexPath.row])
+        }
+    }
+    
     //MARK: - IBActions
     @IBAction func channelSegmentValueChanged(_ sender: Any) {
         
@@ -90,5 +103,19 @@ class ChannelsTableViewController: UITableViewController {
             self.downloadAllChanels()
             self.refreshControl!.endRefreshing()
         }
+    }
+    
+    //MARK: - Navigation
+    private func showChannelView(channel: Channel) {
+        
+        let channelVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "channelView") as! ChannelTableViewController
+        
+        channelVC.channel = channel
+        
+        self.navigationController?.pushViewController(channelVC, animated: true)
+    }
+    
+    private func showChat(channel: Channel) {
+        print(1111111111111111111)
     }
 }
