@@ -902,7 +902,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="tableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="100" id="C3c-gI-ICg" customClass="ChannelsTableViewCell" customModule="cc2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="C3c-gI-ICg" customClass="ChannelsTableViewCell" customModule="cc2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="390" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C3c-gI-ICg" id="h6h-5w-McT">
@@ -973,7 +973,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="aboutLabel" destination="MLc-3p-mvd" id="fnF-AY-Fkd"/>
-                                    <outlet property="avaterImageView" destination="keM-Rn-mLR" id="T6I-kb-Tuc"/>
+                                    <outlet property="avatarImageView" destination="keM-Rn-mLR" id="hV0-du-fxa"/>
                                     <outlet property="lastMessageDateLabel" destination="kMo-Uc-em6" id="jPD-ZE-eVl"/>
                                     <outlet property="memberCountLabel" destination="jYm-ah-IaV" id="Jde-Y5-9yH"/>
                                     <outlet property="nameLabel" destination="3Yh-Cf-pq9" id="vQf-hL-kEW"/>
@@ -995,13 +995,13 @@
                                 <segment title="全てのチャンネル"/>
                             </segments>
                             <connections>
-                                <action selector="channelsSegmentValueChanged:" destination="xqs-DN-UJp" eventType="valueChanged" id="amw-Il-p6l"/>
+                                <action selector="channelSegmentValueChanged:" destination="xqs-DN-UJp" eventType="valueChanged" id="9zd-4B-3pi"/>
                             </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="person.2.square.stack" catalog="system" id="Aa4-4T-9ma"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="ChannelsSegmentOutlet" destination="fEX-RW-uO9" id="9UM-uy-BYP"/>
+                        <outlet property="ChannelsSegmentOutlet" destination="fEX-RW-uO9" id="yo8-qz-DSi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMX-da-V6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -20,7 +20,7 @@ struct Channel: Codable {
     @ServerTimestamp var createdDate = Date()
     @ServerTimestamp var lastMessageDate = Date()
     
-    enum CodingKeys: String, CodingKeys {
+    enum CodingKeys: String, CodingKey {
         case id
         case name
         case adminId
