@@ -22,6 +22,8 @@ class AddChannelTableViewController: UITableViewController {
     var avatarLink = ""
     var channelId = UUID().uuidString
     
+    var channelToEdit: Channel?
+    
     //MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

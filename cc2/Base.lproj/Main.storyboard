@@ -1107,10 +1107,13 @@
                     <navigationItem key="navigationItem" title="マイチャンネル" id="rZ9-5h-YY8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cfO-ef-Zzp">
                             <connections>
-                                <segue destination="UYf-6e-csI" kind="show" id="Jq0-DI-GdT"/>
+                                <action selector="addBarButtonPressed:" destination="NO1-o3-2Ii" id="Wgh-Pt-jgB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="UYf-6e-csI" kind="show" identifier="myChannelToAddSeg" id="Xp1-ts-ul8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ats-Jv-3YA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -34,17 +34,30 @@ class MyChannelsTableViewController: UITableViewController {
         }
     }
     
+    //MARK: - IBActions
+    @IBAction func addBarButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "myChannelToAddSeg", sender: self)
+    }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return myChannels.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! ChannelsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChannelsTableViewCell
 
         cell.configure(channel: myChannels[indexPath.row])
         
         return cell
+    }
+    
+    //MARK: TableView Delegates
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        performSegue(withIdentifier: "myChannelToAddSeg", sender: myChannels[indexPath.row])
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -62,6 +75,16 @@ class MyChannelsTableViewController: UITableViewController {
             FirebaseChannelListener.shared.deleteChannel(channelToDelete)
             
             tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "myChannelToAddSeg" {
+            
+            let editChannelView = segue.destination as! AddChannelTableViewController
+            
+            editChannelView.channelToEdit = sender as? Channel
         }
     }
 }
