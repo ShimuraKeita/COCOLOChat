@@ -1019,7 +1019,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pRl-kq-zoH">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="tableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="NYO-Fd-L4A" customClass="ChannelsTableViewCell" customModule="cc2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="390" height="100"/>
@@ -1123,7 +1123,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bJb-L9-zdT">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="tableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="tH5-mo-7bM">
                                 <cells>
@@ -1203,8 +1203,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="新規チャンネル作成" id="AeU-kZ-xwY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9r0-Rc-wOl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9r0-Rc-wOl">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="UYf-6e-csI" id="TKj-jt-Dwk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="aboutTextView" destination="z4G-pl-eGF" id="bA7-6a-BaI"/>
+                        <outlet property="avatarImageView" destination="y22-uX-Q72" id="UHO-da-LaP"/>
+                        <outlet property="nameTextField" destination="ep3-2h-vZP" id="RdJ-Uw-WLE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFb-5O-ngD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
