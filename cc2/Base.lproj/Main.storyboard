@@ -1222,10 +1222,10 @@
             </objects>
             <point key="canvasLocation" x="4047.6923076923076" y="-191.23222748815164"/>
         </scene>
-        <!--Channel Table View Controller-->
+        <!--Channel Detail Table View Controller-->
         <scene sceneID="eCQ-Sj-tCt">
             <objects>
-                <tableViewController storyboardIdentifier="channelView" id="2ra-F2-Tux" customClass="ChannelTableViewController" customModule="cc2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="channelView" id="2ra-F2-Tux" customClass="ChannelDetailTableViewController" customModule="cc2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VNX-Pj-z9K">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

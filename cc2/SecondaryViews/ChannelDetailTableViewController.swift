@@ -7,7 +7,11 @@
 
 import UIKit
 
-class ChannelTableViewController: UITableViewController {
+protocol ChannelDetailTableViewControllerDelegate {
+    func didClickFollow()
+}
+
+class ChannelDetailTableViewController: UITableViewController {
     
     //MARK: - IBActions
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -17,6 +21,7 @@ class ChannelTableViewController: UITableViewController {
     
     //MARK: - Vars
     var channel: Channel!
+    var delegate: ChannelDetailTableViewControllerDelegate?
     
     //MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -24,7 +29,9 @@ class ChannelTableViewController: UITableViewController {
         
         navigationItem.largeTitleDisplayMode = .never
         tableView.tableFooterView = UIView()
+        
         showChannelData()
+        configureRightBarButton()
     }
     
     //MARK: - Configure
@@ -34,6 +41,11 @@ class ChannelTableViewController: UITableViewController {
         membersLabel.text = "\(channel.memberIds.count) 人"
         aboutTextView.text = channel.aboutChannel
         setAvatar(avatarLink: channel.avaterLink)
+    }
+    
+    private func configureRightBarButton() {
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "フォロー", style: .plain, target: self, action: #selector(followChannel))
     }
     
     private func setAvatar(avatarLink: String) {
@@ -48,5 +60,14 @@ class ChannelTableViewController: UITableViewController {
         } else {
             self.avatarImageView.image = UIImage(named: "avatar")
         }
+    }
+    
+    //MARK: - Actions
+    
+    @objc func followChannel() {
+        channel.memberIds.append(User.currentId)
+        FirebaseChannelListener.shared.saveChannel(channel)
+        delegate?.didClickFollow()
+        self.navigationController?.popViewController(animated: true)
     }
 }
