@@ -43,6 +43,9 @@ class FirebaseChannelListener {
         } catch {
             print("Error saving channel ", error.localizedDescription)
         }
-        
+    }
+    
+    func deleteChannel(_ channel: Channel) {
+        FirebaseReference(.Channel).document(channel.id).delete()
     }
 }
