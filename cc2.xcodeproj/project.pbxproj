@@ -31,6 +31,7 @@
 		23629BB625DD4E1400EC37EE /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629BB525DD4E1400EC37EE /* Channel.swift */; };
 		23629BBB25DF9F0C00EC37EE /* MyChannelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629BBA25DF9F0C00EC37EE /* MyChannelsTableViewController.swift */; };
 		23629BC025DF9F2100EC37EE /* AddChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629BBF25DF9F2100EC37EE /* AddChannelTableViewController.swift */; };
+		23629BC525DFAC8E00EC37EE /* FirebaseChannelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629BC425DFAC8E00EC37EE /* FirebaseChannelListener.swift */; };
 		23645D6E25DB1CAF007D3BB6 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */; };
 		237F832825D7C6A10068A782 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F832725D7C6A10068A782 /* Extensions.swift */; };
 		237F832D25D7D2070068A782 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F832C25D7D2070068A782 /* Status.swift */; };
@@ -119,6 +120,7 @@
 		23629BB525DD4E1400EC37EE /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		23629BBA25DF9F0C00EC37EE /* MyChannelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChannelsTableViewController.swift; sourceTree = "<group>"; };
 		23629BBF25DF9F2100EC37EE /* AddChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelTableViewController.swift; sourceTree = "<group>"; };
+		23629BC425DFAC8E00EC37EE /* FirebaseChannelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseChannelListener.swift; sourceTree = "<group>"; };
 		23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		237F832725D7C6A10068A782 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		237F832C25D7D2070068A782 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				23F37B8025DA9970000BA8C6 /* FirebaseTypingListener.swift */,
 				23F37B1D25D82298000BA8C6 /* FirebaseRecentListener.swift */,
 				23F37B7625D8957E000BA8C6 /* FirebaseMessageListener.swift */,
+				23629BC425DFAC8E00EC37EE /* FirebaseChannelListener.swift */,
 				2357E91825D56224001DB5DD /* FileStorage.swift */,
 			);
 			path = FirebaseHelpers;
@@ -664,6 +667,7 @@
 				23F37B8125DA9970000BA8C6 /* FirebaseTypingListener.swift in Sources */,
 				23629BAE25DD497C00EC37EE /* ChannelsTableViewCell.swift in Sources */,
 				237F832825D7C6A10068A782 /* Extensions.swift in Sources */,
+				23629BC525DFAC8E00EC37EE /* FirebaseChannelListener.swift in Sources */,
 				2357E91425D54F91001DB5DD /* EditProfileTableViewController.swift in Sources */,
 				237F833225D7D92C0068A782 /* StatusTableViewController.swift in Sources */,
 				239D8C2A25DB04E70045FD4A /* LocationMessage.swift in Sources */,

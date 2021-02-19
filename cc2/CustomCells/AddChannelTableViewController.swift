@@ -66,6 +66,7 @@ class AddChannelTableViewController: UITableViewController {
         
         let channel = Channel(id: channelId, name: nameTextField.text!, adminId: User.currentId, memberIds: [User.currentId], avaterLink: avatarLink, aboutChannel: aboutTextView.text)
         
+        FirebaseChannelListener.shared.addChannel(channel)
         self.navigationController?.popViewController(animated: true)
     }
     
