@@ -35,6 +35,11 @@ class AddChannelTableViewController: UITableViewController {
     //MARK: - IBActions
     @IBAction func saveButtonPressed(_ sender: Any) {
         
+        if nameTextField.text != "" {
+            saveChannel()
+        } else {
+            ProgressHUD.showError("チャンネル名が入力されていません。")
+        }
     }
     
     @objc func avatarImageTap() {
@@ -54,6 +59,14 @@ class AddChannelTableViewController: UITableViewController {
     private func configureLeftBarButton() {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backButtonPressed))
+    }
+    
+    //MARK: - Save Channel
+    private func saveChannel() {
+        
+        let channel = Channel(id: channelId, name: nameTextField.text!, adminId: User.currentId, memberIds: [User.currentId], avaterLink: avatarLink, aboutChannel: aboutTextView.text)
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Gallery
@@ -78,13 +91,28 @@ extension AddChannelTableViewController: GalleryControllerDelegate {
             images.first!.resolve { (icon) in
                 
                 if icon != nil {
-                    
+                    self.uploadAvatarImage(icon!)
+                    self.avatarImageView.image = icon?.circleMasked
                 } else {
                     ProgressHUD.showFailed("プロフィール写真が選択されていません。")
                 }
             }
         }
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: Avatars
+    private func uploadAvatarImage(_ image: UIImage) {
+        
+        let fileDirectory = "Avatar/" + "\(channelId)" + ".jpg"
+        
+        FileStorage.saveFileLocally(fileData: image.jpegData(compressionQuality: 0.7) as! NSData, fileName: self.channelId)
+        
+        FileStorage.uploadImage(image, directory: fileDirectory) { (avatarLink) in
+            
+            self.avatarLink = avatarLink ?? ""
+        }
+        
     }
     
     func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
