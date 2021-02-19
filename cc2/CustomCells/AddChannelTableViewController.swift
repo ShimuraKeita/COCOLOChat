@@ -43,7 +43,7 @@ class AddChannelTableViewController: UITableViewController {
     @IBAction func saveButtonPressed(_ sender: Any) {
         
         if nameTextField.text != "" {
-            saveChannel()
+            channelToEdit != nil ? editChannel() : saveChannel()
         } else {
             ProgressHUD.showError("チャンネル名が入力されていません。")
         }
@@ -83,7 +83,17 @@ class AddChannelTableViewController: UITableViewController {
         
         let channel = Channel(id: channelId, name: nameTextField.text!, adminId: User.currentId, memberIds: [User.currentId], avaterLink: avatarLink, aboutChannel: aboutTextView.text)
         
-        FirebaseChannelListener.shared.addChannel(channel)
+        FirebaseChannelListener.shared.saveChannel(channel)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func editChannel() {
+        
+        channelToEdit!.name = nameTextField.text!
+        channelToEdit!.aboutChannel = aboutTextView.text
+        channelToEdit!.avaterLink = avatarLink
+        
+        FirebaseChannelListener.shared.saveChannel(channelToEdit!)
         self.navigationController?.popViewController(animated: true)
     }
     

@@ -36,7 +36,7 @@ class FirebaseChannelListener {
     }
     
     //MARK: - Add Update Delete
-    func addChannel(_ channel: Channel) {
+    func saveChannel(_ channel: Channel) {
         
         do {
             try FirebaseReference(.Channel).document(channel.id).setData(from: channel)
