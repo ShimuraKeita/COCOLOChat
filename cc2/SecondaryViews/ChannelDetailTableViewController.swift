@@ -45,7 +45,7 @@ class ChannelDetailTableViewController: UITableViewController {
     
     private func configureRightBarButton() {
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "フォロー", style: .plain, target: self, action: #selector(followChannel))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登録", style: .plain, target: self, action: #selector(followChannel))
     }
     
     private func setAvatar(avatarLink: String) {
