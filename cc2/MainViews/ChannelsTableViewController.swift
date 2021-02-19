@@ -141,7 +141,11 @@ class ChannelsTableViewController: UITableViewController {
     }
     
     private func showChat(channel: Channel) {
-        print(1111111111111111111)
+        
+        let channelChatVC = ChannelChatViewController(channle: channel)
+        
+        channelChatVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(channelChatVC, animated: true)
     }
 }
 
