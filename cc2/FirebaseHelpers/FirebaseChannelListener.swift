@@ -17,6 +17,23 @@ class FirebaseChannelListener {
     private init() { }
     
     //MARK: - Fetching
+    func downloadUserChannelsFromFirebase(completion: @escaping(_ allChannels: [Channel]) -> Void) {
+        
+        channelListener = FirebaseReference(.Channel).whereField(kADMINID, isEqualTo: User.currentId).addSnapshotListener({ (querySnapshot, error) in
+            
+            guard let documents = querySnapshot?.documents else {
+                print("no documents for user channels")
+                return
+            }
+            
+            var allChannels = documents.compactMap { (queryDocumentSnapshot) -> Channel? in
+                return try? queryDocumentSnapshot.data(as: Channel.self)
+            }
+            
+            allChannels.sort(by: { $0.memberIds.count > $1.memberIds.count })
+            completion(allChannels)
+        })
+    }
     
     //MARK: - Add Update Delete
     func addChannel(_ channel: Channel) {
