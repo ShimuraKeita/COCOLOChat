@@ -23,9 +23,13 @@ class ChannelsTableViewController: UITableViewController {
         navigationItem.largeTitleDisplayMode = .always
         self.title = "チャンネル"
         
+        self.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl = self.refreshControl
+        
         tableView.tableFooterView = UIView()
         
-        downloadChanels()
+        downloadAllChanels()
+        downloadSubscribedChannels()
     }
 
     // MARK: - Table view data source
@@ -51,7 +55,7 @@ class ChannelsTableViewController: UITableViewController {
     }
     
     //MARK: - Download channels
-    private func downloadChanels() {
+    private func downloadAllChanels() {
         
         FirebaseChannelListener.shared.downloadAllChannels { (allChannels) in
             
@@ -63,7 +67,9 @@ class ChannelsTableViewController: UITableViewController {
                 }
             }
         }
-        
+    }
+    
+    private func downloadSubscribedChannels() {
         FirebaseChannelListener.shared.downloadSubscribedChannels { (subscribedChannels) in
             
             self.subscribeChannels = subscribedChannels
@@ -73,6 +79,16 @@ class ChannelsTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    
+    //MARK: - UIScrollViewDelegate
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        if self.refreshControl!.isRefreshing {
+            self.downloadAllChanels()
+            self.refreshControl!.endRefreshing()
         }
     }
 }
