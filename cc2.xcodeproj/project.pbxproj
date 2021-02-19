@@ -29,6 +29,8 @@
 		23629B9C25DD421100EC37EE /* ChannelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629B9B25DD421100EC37EE /* ChannelsTableViewController.swift */; };
 		23629BAE25DD497C00EC37EE /* ChannelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629BAD25DD497C00EC37EE /* ChannelsTableViewCell.swift */; };
 		23629BB625DD4E1400EC37EE /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629BB525DD4E1400EC37EE /* Channel.swift */; };
+		23629BBB25DF9F0C00EC37EE /* MyChannelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629BBA25DF9F0C00EC37EE /* MyChannelsTableViewController.swift */; };
+		23629BC025DF9F2100EC37EE /* AddChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23629BBF25DF9F2100EC37EE /* AddChannelTableViewController.swift */; };
 		23645D6E25DB1CAF007D3BB6 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */; };
 		237F832825D7C6A10068A782 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F832725D7C6A10068A782 /* Extensions.swift */; };
 		237F832D25D7D2070068A782 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F832C25D7D2070068A782 /* Status.swift */; };
@@ -115,6 +117,8 @@
 		23629B9B25DD421100EC37EE /* ChannelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableViewController.swift; sourceTree = "<group>"; };
 		23629BAD25DD497C00EC37EE /* ChannelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableViewCell.swift; sourceTree = "<group>"; };
 		23629BB525DD4E1400EC37EE /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		23629BBA25DF9F0C00EC37EE /* MyChannelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChannelsTableViewController.swift; sourceTree = "<group>"; };
+		23629BBF25DF9F2100EC37EE /* AddChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelTableViewController.swift; sourceTree = "<group>"; };
 		23645D6D25DB1CAF007D3BB6 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		237F832725D7C6A10068A782 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		237F832C25D7D2070068A782 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -306,6 +310,8 @@
 				237F833625D7E59F0068A782 /* UserTableViewCell.swift */,
 				23F37B1325D814B8000BA8C6 /* RecentTableViewCell.swift */,
 				23629BAD25DD497C00EC37EE /* ChannelsTableViewCell.swift */,
+				23629BBA25DF9F0C00EC37EE /* MyChannelsTableViewController.swift */,
+				23629BBF25DF9F2100EC37EE /* AddChannelTableViewController.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -654,6 +660,7 @@
 				2357E88425D3FE99001DB5DD /* LoginViewController.swift in Sources */,
 				23F37B6925D88BA1000BA8C6 /* OutgoingMessage.swift in Sources */,
 				2357E90F25D4DBE7001DB5DD /* SettingsTableViewController.swift in Sources */,
+				23629BC025DF9F2100EC37EE /* AddChannelTableViewController.swift in Sources */,
 				23F37B8125DA9970000BA8C6 /* FirebaseTypingListener.swift in Sources */,
 				23629BAE25DD497C00EC37EE /* ChannelsTableViewCell.swift in Sources */,
 				237F832825D7C6A10068A782 /* Extensions.swift in Sources */,
@@ -674,6 +681,7 @@
 				239D8C2F25DB0A700045FD4A /* MapViewController.swift in Sources */,
 				23F37B6425D88752000BA8C6 /* RealmManager.swift in Sources */,
 				23F37B4425D87489000BA8C6 /* MessageLayoutDelegate.swift in Sources */,
+				23629BBB25DF9F0C00EC37EE /* MyChannelsTableViewController.swift in Sources */,
 				23F37B1925D81F7E000BA8C6 /* StartChat.swift in Sources */,
 				239D8C1725DADCFA0045FD4A /* VideoMessage.swift in Sources */,
 				2357E90625D440CD001DB5DD /* FirebaseUserListener.swift in Sources */,
